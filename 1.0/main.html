@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        TREE MACHINE
+    </title>
+    <style>
+        #main_text {
+            font-size: 8pt;
+            font-family: "돋움", Sans-serif;
+        }
+    </style>
+    <style type="text/css">
+        a {
+            text-align: center;
+            color: black;
+            font-size: 30pt;
+            padding: 5px;
+            font-family: "돋움", Sans-Serif;
+            text-decoration: none;
+        }
+
+        body {
+            text-align: center;
+        }
+    </style>
+
+</head>
+
+<body bgcolor="#e6ffe6">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- don't strip me off... -->
+
+    <div>
+        <br>
+        <b><a href="/">TREE MACHINE 1.0</a></b>
+        <br><br>
+    </div>
+    <div>
+        <form id="uploadbanner" enctype="multipart/form-data" method="post" action="/upload">
+            <input type="file" name="uploaded_file" id="file_uploaded" />
+            <input type="submit" value="제출"/>
+        </form>
+    </div>
+
+    <br>
+    {% if data!=None %}
+    <textarea cols="50" rows="8">{{data}}</textarea>
+    {% endif %}
+    <br>
+    <br>
+    <div id=copyright>
+        Copyright(C) 2020. Kingrbi. All rights reserved
+    </div>
+
+</body>
+
+</html>

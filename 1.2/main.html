@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Excel to Tree converter
+    </title>
+    <style>
+        #main_text {
+            font-size: 8pt;
+            font-family: "돋움", Sans-serif;
+        }
+    </style>
+    <style type="text/css">
+        a {
+            text-align: center;
+            color: black;
+            font-size: 30pt;
+            padding: 5px;
+            font-family: "돋움", Sans-Serif;
+            text-decoration: none;
+        }
+
+        body {
+            text-align: center;
+        }
+
+        label {
+            color: black;
+            font-size: 10pt;
+            font-family: "돋움", Sans-serif;
+            text-align: center;
+        }
+
+    </style>
+
+</head>
+
+<body bgcolor="#e6ffe6">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- don't strip me off... -->
+    <div>
+        <br>
+        <b><a href="/">Excel to Tree converter 1.2</a></b>
+        <br><br>
+    </div>
+    <div>
+        <form id="uploadbanner" enctype="multipart/form-data" method="post" action="/upload">
+            <input type="file" name="uploaded_file" id="file_uploaded" accept=".xlsx, .xls, .csv" />
+            <input type="submit" value="제출" id="file_submit" onclick="file_check()" />
+            <br>
+            <label><input type="checkbox" name="attr_name"/>라벨미표시</label>
+            <label><input type="checkbox" name="attr_law"/>법조문형식</label>
+        </form>
+    </div>
+    <div>
+        <script>
+            function file_check() {
+                if (document.getElementById('file_uploaded').files.length == 0) {
+                    alert('No file uploaded')
+                }
+            }
+        </script>
+    </div>
+    <div>
+        <br>
+        {% if data!=None %}
+        <textarea cols="50" rows="8">{{data}}</textarea>
+        {% endif %}
+        <br><br>
+        <div id=copyright>
+            Copyright(C) 2020. Kingrbi. All rights reserved
+        </div>
+    </div>
+</body>
+
+</html>
