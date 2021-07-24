@@ -1,23 +1,74 @@
-#main_text {
-    font-size: 8pt;
-    font-family: "돋움", Sans-serif;
+:root{
+    --h: 10%;
+    --f: 8%;
+    --fc: rgb(176, 231, 233);
 }
-a {
+
+html, body{
+    height: 100%;
+    margin:0;
+    padding:0;
+}
+
+body, header, footer, article, article > div, nav{
     text-align: center;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+header{
+    background: var(--fc);
+    align-self: flex-start;
+    width:100%;
+    height:var(--h);
+}
+
+header > nav {
+    justify-self: flex-start;
+    height:100%;
+}
+
+header > span > a{
+    font-size : 30pt;
     color: black;
-    font-size: 30pt;
-    padding: 5px;
-    font-family: "돋움", Sans-Serif;
     text-decoration: none;
 }
 
-body {
-    text-align: center;
+article{
+    width:100%;
+    height:calc(100% - var(--h) - var(--f));
 }
 
-label {
-    color: black;
-    font-size: 10pt;
-    font-family: "돋움", Sans-serif;
-    text-align: center;
+article > div{
+    width:100%;
 }
+
+#_ib{
+    height:10%;
+    align-self: flex-end;
+}
+
+#_ib > label{
+    width:100%;
+}
+
+#_ob{
+    width:100%;
+    height:50%;
+    align-self: flex-start;
+}
+
+#_ot{
+    width:50%;
+    height:100%;
+}
+
+footer{
+    background:var(--fc);
+    align-self:flex-end;
+    width:100%;
+    height:var(--f);
+}
+

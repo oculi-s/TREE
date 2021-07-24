@@ -7,24 +7,36 @@
 </head>
 
 <body>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name=viewport content="width=device-width, initial-scale=1.0">
     <header>
-        <a id=title href="./V2.0/index.html">Excel to Tree converter 2.0</a>
+        <nav>
+            <button>
+                asdf
+            </button>
+        </nav>
+        <span>
+            <a id=title href="./index.html">Excel to Tree converter 2.0</a>
+        </span>
     </header>
 
-    <div>
-        <input type="file" id=_file_input accept=".xlsx, .xls, .csv" />
-        <input type="submit" value=제출 onclick=_file_check() />
-        <br>
-        <label><input type="checkbox" />라벨미표시</label>
-    </div>
+    <article>
+        <div id=_ib>
+            <input type=file id=_fi accept=".xlsx, .xls, .csv" />
+            <input type=submit value=제출 onclick=_file_check() />
+            <label>
+                <input type=checkbox />라벨미표시
+            </label>
+        </div>
 
-    <div>
-        <textarea id=_output cols=50 rows=8></textarea>
-    </div>
+        <div id=_ob>
+            <textarea id=_ot></textarea>
+        </div>
+    </article>
 
     <footer id=_copyright>
-        Copyright(C) 2020. Oculis. All rights reserved
+        <span>
+            Copyright(C) 2020. Oculis. All rights reserved
+        </span>
     </footer>
 
     <script type=text/javascript src=./V2.0/js/_main.js></script>

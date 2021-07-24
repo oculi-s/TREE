@@ -1,4 +1,4 @@
-var _output = document.getElementById('_output')
+var _ot = document.getElementById('_ot')
 var _data;
 var _array = [];
 
@@ -17,5 +17,5 @@ function _csv_parser(d){
         _array.push(_row);
     });
     console.log(_array);
-    _output.innerText = _array;
+    _ot.innerText = _array[0][0];
 };
