@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Excel to Tree converter</title>
+    <link rel=stylesheet href=./css/main.css>
+</head>
+
+<body>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <header>
+        <a id=title href="./index.html">Excel to Tree converter 2.0</a>
+    </header>
+
+    <div>
+        <input type="file" id=_file_input accept=".xlsx, .xls, .csv" />
+        <input type="submit" value=제출 onclick=_file_check() />
+        <br>
+        <label><input type="checkbox" />라벨미표시</label>
+    </div>
+
+    <div>
+        <textarea id=_output cols=50 rows=8></textarea>
+    </div>
+
+    <footer id=_copyright>
+        Copyright(C) 2020. Oculis. All rights reserved
+    </footer>
+
+    <script type=text/javascript src=./js/_main.js></script>
+    <script type=text/javascript src=./js/_csv_to_table.js></script>
+</body>
+
+</html>
