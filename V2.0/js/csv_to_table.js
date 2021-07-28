@@ -1,10 +1,6 @@
 _ot = document.getElementById('_ot')
 _a = [];
 
-_sf = new XMLHttpRequest();
-_sf.open("GET", "https://oculi-s.github.io/TREE/V2.0/sample.csv", false);
-_csv_to_table(_sf);
-
 function _csv_to_table(_file) {
     _r = new FileReader();
     _r.readAsText(_file, 'UTF-8');

@@ -81,7 +81,7 @@ header > span{
     margin-right:55%;
 }
 header > span > a{
-    font-size : 25pt;
+    font-size : 20pt;
     color: black;
     text-decoration: none;
 }
@@ -113,7 +113,7 @@ article > div{
 #_ot{
     width:50%;
     height:100%;
-    white-space: pre-wrap;
+    font-size:12pt;
 }
 
 footer{
