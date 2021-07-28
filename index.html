@@ -4,18 +4,27 @@
 <head>
     <title>Excel to Tree converter</title>
     <link rel=stylesheet href=./V2.0/css/main.css>
+    <link rel=stylesheet href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 
 <body>
     <meta name=viewport content="width=device-width, initial-scale=1.0">
     <header>
         <nav>
-            <button>
-                asdf
-            </button>
+            <label>
+                <input id=_cn type=checkbox />
+                <span class=i>menu</span>
+            </label>
         </nav>
+        <ul id=_mu>
+            <li>Home</li>
+            <li>2</li>
+        </ul>
         <span>
-            <a id=title href="./index.html">Excel to Tree converter 2.0</a>
+            <a id=title href="./index.html">
+                <span class=i>park</span>
+                Excel to Tree converter 2.0
+            </a>
         </span>
     </header>
 
@@ -24,7 +33,8 @@
             <input type=file id=_fi accept=".xlsx, .xls, .csv" />
             <input type=submit value=제출 onclick=_file_check() />
             <label>
-                <input type=checkbox />라벨미표시
+                <input type=checkbox />
+                <span class=i>toggle_off</span>라벨미표시
             </label>
         </div>
 

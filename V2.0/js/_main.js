@@ -1,4 +1,6 @@
-var _fi = document.getElementById('_fi')
+var _fi = document.getElementById('_fi');
+var _cn = document.getElementById('_cn');
+var _mu = document.getElementById('_mu');
 
 function _file_check() {
     if (_fi.files.length == 0) {
@@ -10,3 +12,11 @@ function _file_check() {
     }
 }
 
+_cn.onclick = function(){
+    if (_cn.checked){
+        _mu.style.display = "block";
+    }
+    else{
+        _mu.style.display = "none";
+    };
+};
