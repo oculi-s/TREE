@@ -1,13 +1,13 @@
-var _fi = document.getElementById('_fi');
-var _cn = document.getElementById('_cn');
-var _mu = document.getElementById('_mu');
+_fi = document.getElementById('_fi');
+_cn = document.getElementById('_cn');
+_mu = document.getElementById('_mu');
 
 function _file_check() {
     if (_fi.files.length == 0) {
         alert('No file uploaded')
     }
     else {
-        var _file = _fi.files[0];
+        _file = _fi.files[0];
         _csv_to_table(_file);
     }
 }
