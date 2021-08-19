@@ -2,7 +2,7 @@ var _fi = document.getElementById('_fi');
 var _cn = document.getElementById('_cn');
 var _mu = document.getElementById('_mu');
 var _su = document.getElementById('_su');
-_su.value = String.fromCharCode(9654)
+_su.value = String.fromCharCode(9654);
 
 function _file_check() {
     if (_fi.files.length == 0) {
