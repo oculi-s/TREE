@@ -9,11 +9,18 @@
 ## How to Use
 1) Prepare your csv file
 
+<div align=center>
+
 ![image](https://user-images.githubusercontent.com/44251667/130000722-2935e79b-37f3-410b-ba5e-145ff894c6ea.png)
+
+</div>
 
 It will be converted as below
 
+<div align=center>
+
 ![image](https://user-images.githubusercontent.com/44251667/130001138-a9eaca3d-f639-43d5-a517-113cf6f32df2.png)
+</div>
 
 ### some restrictions for succesful conversion
  - one data for one row each
@@ -21,4 +28,7 @@ It will be converted as below
 
 2) upload your file and press conversion button
 
+<div align=center>
+
 ![image](https://user-images.githubusercontent.com/44251667/130000997-d228fbef-db9d-4baf-a24c-46a32d6a0476.png)
+</div>
