@@ -47,6 +47,10 @@ header{
     height:var(--h);
 }
 
+#title{
+    font-weight: bold;
+}
+
 nav {
     margin-right:auto;
     margin-left:2%;
@@ -88,6 +92,20 @@ article > div{
 #_ib{
     height:10%;
     align-self: flex-end;
+}
+
+#_ib > input{
+    border:none;
+    background:none;
+    margin:3px;
+    padding:3px;
+    border-radius:5px;
+    font-size:12pt;
+}
+
+#_ib > input:hover{
+    cursor:pointer;
+    background: rgb(133, 133, 133);
 }
 
 #_ib > label{

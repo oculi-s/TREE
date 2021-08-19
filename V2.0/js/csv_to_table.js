@@ -19,14 +19,14 @@ function _csv_to_table(_file) {
                         if (!s)
                             _s += '  ';
                         else
-                            _s += '│'
+                            _s += String.fromCharCode(9474);
                     }
-                    b = '└';
+                    b = String.fromCharCode(9492);
                     for (k = i + 1; k < _d.length; k++) {
                         if (_d[k][j - 1])
                             break;
                         else if (_d[k][j]) {
-                            b = '├';
+                            b = String.fromCharCode(9501);
                             break;
                         }
                     }
