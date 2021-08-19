@@ -1,10 +1,12 @@
 # tree v2.0
 
+## overview
 [link](https://oculi-s.github.io/tree/) Activated by Github Pages
-1) CSV file to tree diagram conversion tool
-2) upload & edit & copy & download for free
-
+### 1) CSV file to tree diagram conversion webpage
+### 2) upload & edit & copy & download for free
 *Still developing*
+<br>
+<br>
 
 ## How to Use
 ### 1) Prepare your csv file
@@ -14,7 +16,7 @@
 
 </div>
 
-It will be converted as below
+It is converted as below
 
 <div align=center>
 <img src=https://user-images.githubusercontent.com/44251667/130001138-a9eaca3d-f639-43d5-a517-113cf6f32df2.png width=30%>
