@@ -7,7 +7,7 @@
 *Still developing*
 
 ## How to Use
-1) Prepare your csv file
+### 1) Prepare your csv file
 
 <div align=center>
 
@@ -22,11 +22,11 @@ It will be converted as below
 ![image](https://user-images.githubusercontent.com/44251667/130001138-a9eaca3d-f639-43d5-a517-113cf6f32df2.png)
 </div>
 
-### some restrictions for succesful conversion
+### *some restrictions for succesful conversion*
  - one data for one row each
  - make sure the depth of data is to be column number
 
-2) upload your file and press conversion button
+### 2) upload your file and press conversion button
 
 <div align=center>
 
