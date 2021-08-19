@@ -2,8 +2,8 @@
 
 ## overview
 [link](https://oculi-s.github.io/tree/) Activated by Github Pages
-### 1) CSV file to tree diagram conversion webpage
-### 2) upload & edit & copy & download for free
+1) CSV file to tree diagram conversion webpage
+2) upload & edit & copy & download for free
 *Still developing*
 <br>
 <br>
