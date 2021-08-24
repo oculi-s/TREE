@@ -23,30 +23,35 @@
         <span>
             <a id=title href="./index.html">
                 <span class=i style=color:green>park</span>
-                CSV to Tree converter 2.0
+                CSV to Tree converter
             </a>
         </span>
     </header>
 
     <article>
-        <div id=_ib>
-            <input type=file id=_fi accept=".xlsx, .xls, .csv" />
-            <input type=submit id=_su onclick=_file_check() />
-            <!-- <label>
-                <input type=checkbox />
-                <span class=i>toggle_off</span>
-            </label> -->
-        </div>
-
-        <div id=_ob>
-            <textarea id=_ot></textarea>
+        <div>
+            <div id=_ib>
+                <label for="_fi">파일 선택</label>
+                <input type=file id=_fi accept=".xlsx, .xls, .csv" />
+                <input type=submit id=_su onclick=_file_check() />
+                <!-- <label>
+                    <input type=checkbox />
+                    <span class=i>toggle_off</span>
+                </label> -->
+            </div>
+    
+            <div id=_ob>
+                <textarea id=_ot></textarea>
+            </div>
         </div>
     </article>
 
     <footer id=_copyright>
-        <span>
-            Copyright(C) 2020. Oculis. All rights reserved
-        </span>
+        <div>
+            <span>
+                Tree by oculis
+            </span>
+        </div>
     </footer>
 
     <script type=text/javascript src=./V2.0/js/main.js></script>
