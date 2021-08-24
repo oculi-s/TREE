@@ -15,6 +15,11 @@
     font-family: 'Material Icons';
 }
 
+a{
+    text-decoration: none;
+    color: white;
+}
+
 button{
     border: 0;
     outline: 0;
@@ -33,7 +38,7 @@ html, body{
     padding:0;
 }
 
-body, header, footer, article, article > div, nav, #_ib{
+body, header, footer, article, article>div, nav, #_ib, footer>div{
     text-align: center;
     display:flex;
     flex-wrap: wrap;
@@ -162,8 +167,15 @@ footer{
     align-self:flex-end;
     width:100%;
     height:var(--f);
-    justify-content: flex-end;
 }
-footer > div{
 
+footer > div{
+    justify-content: flex-end;
+    width: calc(55% - 60px);
+    padding: 30px;
+    font-weight: normal;
+}
+
+footer>div>a{
+    text-decoration: underline;
 }
