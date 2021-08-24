@@ -1,4 +1,4 @@
-# tree v2.0
+# tree
 
 ## overview
 [link](https://oculi-s.github.io/tree/) Activated by Github Pages
