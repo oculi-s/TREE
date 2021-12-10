@@ -47,32 +47,6 @@ header{
     height:12%;
 }
 
-article table{
-    border-collapse: collapse;
-    display: inline-block;
-}
-
-article td{
-    margin: 0%;
-    padding: 0%;
-    background: #fff;
-    border: 1px solid #000;
-}
-
-td>input{
-    padding: 0%;
-    background: transparent;
-    cursor: cell;
-    border: none;
-    margin: auto;
-    width: 10%;
-    max-width: 100px;
-}
-
-td>input:focus{
-    outline: none;
-}
-
 #title{
     font-size: 25px;
     font-weight: bold;
@@ -120,6 +94,32 @@ article::after{
     left: 0;
     right: 0;
     z-index: -1;
+}
+
+article>table{
+    border-collapse: collapse;
+    display: inline-block;
+}
+
+article td{
+    margin: 0%;
+    padding: 0%;
+    background: #fff;
+    border: 1px solid #000;
+}
+
+td>input{
+    padding: 0%;
+    background: transparent;
+    cursor: cell;
+    border: none;
+    margin: auto;
+    width: 10%;
+    max-width: 100px;
+}
+
+td>input:focus{
+    outline: none;
 }
 
 article > div{
