@@ -109,18 +109,7 @@ table td{
     border: 1px solid #000;
     max-width:100px;
     width:10%;
-}
-
-td>input{
-    padding: 0%;
-    background: transparent;
     cursor: cell;
-    border: none;
-    margin: auto;
-}
-
-td>input:focus{
-    outline: none;
 }
 
 article > div{

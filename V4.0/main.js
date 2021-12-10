@@ -18,7 +18,7 @@ const t = $('article tbody');
 for (var r = 0; r < 20; r++) {
     var temp = `<tr>`;
     for (var c = 0; c<MAX_DEPTH; c++){
-        temp += `<td data-c=${c} data-r=${r} onkeyup=cmove><input type=text></input></td>`
+        temp += `<td contenteditable=true data-c=${c} data-r=${r} onkeyup=cmove></td>`
     }
     temp += `</tr>`;
     t.innerHTML += temp;
