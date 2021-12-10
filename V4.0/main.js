@@ -24,3 +24,7 @@ for (var r = 0; r < 20; r++) {
     temp += `</tr>`;
     t.innerHTML += temp;
 }
+
+if (/Android|iPhone|ipad|iPod/i.test(navigator.userAgent)) {
+    $('article').classList.add('m-a');
+}

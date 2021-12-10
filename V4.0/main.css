@@ -1,3 +1,7 @@
+.m-a{
+    width:100%;
+}
+
 :root{
     --h: 10%;
     --f: 8%;
@@ -56,10 +60,10 @@ header{
 article table{
     border: 0;
     border-collapse: collapse;
+    width:100%;
 }
 
 article td{
-    width:80px;
     margin: 0%;
     padding: 0%;
 }
