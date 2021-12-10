@@ -134,6 +134,8 @@ article textarea{
     height:50% !important;
     min-height: 500px;
     font-size:12pt;
+    border: none;
+    border-radius: 0%;
 }
 
 footer{
