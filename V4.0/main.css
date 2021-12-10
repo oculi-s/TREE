@@ -107,8 +107,8 @@ table td{
     padding: 0%;
     background: #fff;
     border: 1px solid #000;
-    max-width:100px;
-    width:10%;
+    min-width:50px;
+    width:100px;
     cursor: cell;
 }
 
