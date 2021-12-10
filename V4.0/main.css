@@ -66,13 +66,13 @@ td>input{
     padding: 0%;
     background: transparent;
     cursor: cell;
-    border: none;
+    outline: none;
     display: table-cell;
     margin: auto;
 }
 
 td>input:focus{
-    border: none;
+    outline: none;
 }
 
 #title{
