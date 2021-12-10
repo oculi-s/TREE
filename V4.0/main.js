@@ -24,5 +24,3 @@ for (var r = 0; r < 20; r++) {
     temp += `</tr>`;
     t.innerHTML += temp;
 }
-
-alert($('article table').innerHTML);
