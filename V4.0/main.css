@@ -67,6 +67,8 @@ td>input{
     cursor: cell;
     border: none;
     margin: auto;
+    width: 10%;
+    max-width: 100px;
 }
 
 td>input:focus{
