@@ -14,7 +14,7 @@ function _file_check() {
 }
 
 const MAX_DEPTH = 5;
-const t = $('article table');
+const t = $('article tbody');
 for (var r = 0; r < 20; r++) {
     var temp = `<tr>`;
     for (var c = 0; c<MAX_DEPTH; c++){
