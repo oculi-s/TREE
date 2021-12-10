@@ -59,13 +59,16 @@ article td{
     padding: 0%;
     background: #fff;
     border: 1px solid #000;
+    display: table;
 }
 
 td>input{
-    margin: 0%;
     padding: 0%;
     background: transparent;
     cursor: cell;
+    border: none;
+    display: table-cell;
+    margin: auto;
 }
 
 td>input:focus{
