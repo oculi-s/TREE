@@ -44,7 +44,6 @@ html, body{
 
 header{
     background: var(--fc);
-    align-self: flex-start;
     width:100%;
     height:var(--h);
 }
@@ -53,6 +52,7 @@ article table{
     border: 0;
     border-collapse: collapse;
     width:100%;
+    display: inline-block;
 }
 
 article td{
@@ -123,14 +123,9 @@ article > div{
     background: rgba(0,10,0,0.9);
 }
 
-#_fi{
-    display: none;
-}
-
 #_ob{
     width:100%;
     height:50%;
-    align-self: flex-start;
 }
 
 #_ot{

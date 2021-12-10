@@ -1,6 +1,5 @@
 window.$ = document.querySelector.bind(document);
 
-var _fi = $('#_fi');
 var _cn = $('#_cn');
 var _mu = $('#_mu');
 
