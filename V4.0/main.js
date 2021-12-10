@@ -24,5 +24,5 @@ for (var r = 0; r < 20; r++) {
         temp += `<td data-c=${c} data-r=${r}><input type=text></input></td>`
     }
     temp += `</tr>`;
+    t.innerHTML += temp;
 }
-t.innerHTML += temp;
