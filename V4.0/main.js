@@ -34,8 +34,8 @@ function wresize(){
 }
 wresize();
 
-function cmove(){
-    if(event.keyCode==38){
+function cmove(e){
+    if(e.keyCode==38){
         alert(this.dataset.c);
         alert(this.dataset.r);
     }
