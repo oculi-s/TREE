@@ -3,8 +3,7 @@ const $ = document.querySelector.bind(document);
 var _fi = $('#_fi');
 var _cn = $('#_cn');
 var _mu = $('#_mu');
-var _su = $('#_su');
-_su.value = String.fromCharCode(9654);
+alert(_fi.innerHTML);
 
 function _file_check() {
     if (_fi.files.length == 0) {
