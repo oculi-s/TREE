@@ -1,5 +1,6 @@
 .m-a > div{
     width:100%;
+    text-align: center;
 }
 
 :root{
@@ -50,9 +51,7 @@ header{
 
 article table{
     border-collapse: collapse;
-    width:100%;
     display: inline-block;
-    margin: auto 0;
 }
 
 article td{
