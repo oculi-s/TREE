@@ -24,6 +24,12 @@ for (var r = 0; r < 20; r++) {
     t.innerHTML += temp;
 }
 
-if (/Android|iPhone|ipad|iPod/i.test(navigator.userAgent)) {
-    $('article').classList.add('m-a');
+$('body').onresize = wresize;
+function wresize(){
+    if (/Android|iPhone|ipad|iPod/i.test(navigator.userAgent)) {
+        $('article').classList.add('m-a');
+    } else{
+        $('article').classList.remove('m-a');
+    }
 }
+wresize();
