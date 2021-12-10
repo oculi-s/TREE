@@ -107,7 +107,7 @@ table td{
     padding: 0%;
     background: #fff;
     border: 1px solid #000;
-    min-width:100px;
+    max-width:100px;
     width:10%;
 }
 
