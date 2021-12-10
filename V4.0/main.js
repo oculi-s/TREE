@@ -1,10 +1,8 @@
 window.$ = document.querySelector.bind(document);
-alert(window.$);
 
 var _fi = $('#_fi');
 var _cn = $('#_cn');
 var _mu = $('#_mu');
-alert(_fi);
 
 function _file_check() {
     if (_fi.files.length == 0) {

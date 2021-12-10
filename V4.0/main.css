@@ -53,6 +53,12 @@ header{
     height:var(--h);
 }
 
+article td{
+    width:80px;
+    margin: 0%;
+    padding: 0%;
+}
+
 #title{
     font-weight: bold;
     color:white;
@@ -113,38 +119,6 @@ article > div{
     height:100%;
     background: rgba(0,10,0,0.9);
 }
-
-/* #_ib{
-    width: 300px;
-    background: white;
-    padding-left: 10px;
-    padding-right: 10px;
-    border-radius: 8px;
-    align-self: flex-end;
-    margin-bottom: 30px;
-    justify-content: space-between;
-} */
-/* 
-#_ib > input{
-    border:none;
-    background:none;
-    margin:3px;
-    padding:3px;
-    border-radius:5px;
-    font-size:20px;
-    cursor: pointer;
-} */
-
-/* #_ib > label:hover{
-    background: rgb(133, 133, 133);
-}
-
-#_ib > label{
-    border: none;
-    background: white;
-    color: black;
-    cursor: pointer;
-} */
 
 #_fi{
     display: none;
