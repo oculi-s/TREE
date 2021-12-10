@@ -110,6 +110,8 @@ table td{
     min-width:50px;
     width:100px;
     cursor: cell;
+    color: #000;
+    font-weight: normal;
 }
 
 article > div{
