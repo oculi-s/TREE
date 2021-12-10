@@ -1,4 +1,4 @@
-.m-a{
+.m-a > div{
     width:100%;
 }
 
@@ -104,6 +104,7 @@ header > span > a{
 }
 
 article{
+    text-align: center;
     width:100%;
     height:calc(100% - var(--h) - var(--f));
 }
@@ -123,6 +124,7 @@ article::after{
 }
 
 article > div{
+    display: inline-block;
     width:55%;
     padding: 30px;
     height:100%;
