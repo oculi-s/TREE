@@ -42,14 +42,6 @@ html, body{
     padding:0;
 }
 
-body, header, footer, article, article>div, nav, #_ib, footer>div{
-    text-align: center;
-    display:flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-}
-
 header{
     background: var(--fc);
     align-self: flex-start;
@@ -68,9 +60,17 @@ article td{
     padding: 0%;
 }
 
+td>input{
+    margin: 0%;
+    padding: 0%;
+}
+
 #title{
     font-weight: bold;
     color:white;
+    position: absolute;
+    top: 0;
+    left: 5%;
 }
 
 nav {
