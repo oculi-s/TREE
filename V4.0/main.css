@@ -96,7 +96,6 @@ article{
 article::after{
     content: "";
     background: rgba(0,100,0,0.3);
-/*     background-image: url('../static/main.jpg'); */
     background-repeat: no-repeat;
     background-size: 100%;
     opacity: 0.8;
@@ -115,7 +114,7 @@ article > div{
     background: rgba(0,10,0,0.9);
 }
 
-#_ib{
+/* #_ib{
     width: 300px;
     background: white;
     padding-left: 10px;
@@ -124,8 +123,8 @@ article > div{
     align-self: flex-end;
     margin-bottom: 30px;
     justify-content: space-between;
-}
-
+} */
+/* 
 #_ib > input{
     border:none;
     background:none;
@@ -134,9 +133,9 @@ article > div{
     border-radius:5px;
     font-size:20px;
     cursor: pointer;
-}
+} */
 
-#_ib > label:hover{
+/* #_ib > label:hover{
     background: rgb(133, 133, 133);
 }
 
@@ -145,7 +144,7 @@ article > div{
     background: white;
     color: black;
     cursor: pointer;
-}
+} */
 
 #_fi{
     display: none;
