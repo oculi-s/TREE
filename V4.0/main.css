@@ -96,12 +96,12 @@ article::after{
     z-index: -1;
 }
 
-article>table{
+article table{
     border-collapse: collapse;
     display: inline-block;
 }
 
-article td{
+table td{
     margin: 0%;
     padding: 0%;
     background: #fff;
@@ -132,6 +132,7 @@ article > div{
 article textarea{
     width:100% !important;
     height:50% !important;
+    min-height: 500px;
     font-size:12pt;
 }
 
