@@ -99,6 +99,7 @@ article::after{
 article table{
     border-collapse: collapse;
     display: inline-block;
+    margin-top: 30px;
 }
 
 table td{
@@ -125,7 +126,6 @@ td>input:focus{
 article > div{
     display: inline-block;
     width:55%;
-    padding: 30px;
     background: rgba(0,10,0,0.9);
 }
 
@@ -133,6 +133,7 @@ article textarea{
     min-width:80%;
     height:50% !important;
     min-height: 500px;
+    margin-bottom: 30px;
     font-size:12pt;
     border: none;
     border-radius: 0%;
