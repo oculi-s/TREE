@@ -138,6 +138,10 @@ article textarea{
     border-radius: 0%;
 }
 
+article textarea:focus{
+    outline: none;
+}
+
 footer{
     background:var(--fc);
     width:100%;
