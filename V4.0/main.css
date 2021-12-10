@@ -70,7 +70,7 @@ td>input{
 }
 
 td>input:focus{
-    border: none;
+    outline: none;
 }
 
 #title{
