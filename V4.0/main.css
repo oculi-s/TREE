@@ -52,6 +52,7 @@ article table{
     border-collapse: collapse;
     width:100%;
     display: inline-block;
+    margin: auto 0;
 }
 
 article td{
