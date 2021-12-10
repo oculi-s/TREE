@@ -59,20 +59,18 @@ article td{
     padding: 0%;
     background: #fff;
     border: 1px solid #000;
-    display: table;
 }
 
 td>input{
     padding: 0%;
     background: transparent;
     cursor: cell;
-    outline: none;
-    display: table-cell;
+    border: none;
     margin: auto;
 }
 
 td>input:focus{
-    outline: none;
+    border: none;
 }
 
 #title{
