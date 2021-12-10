@@ -107,6 +107,8 @@ table td{
     padding: 0%;
     background: #fff;
     border: 1px solid #000;
+    min-width:100px;
+    width:10%;
 }
 
 td>input{
@@ -115,8 +117,6 @@ td>input{
     cursor: cell;
     border: none;
     margin: auto;
-    width: 10%;
-    max-width: 100px;
 }
 
 td>input:focus{
