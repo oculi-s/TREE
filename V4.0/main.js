@@ -15,6 +15,7 @@ for (var r = 0; r < MAX_DATA; r++) {
 if ('tree_dict' in localStorage) {
     try {
         add_string(JSON.parse(localStorage.tree_dict), Array(MAX_DEPTH + 1).fill(String.fromCharCode(9474)), 0);
+        $('textarea').value = string;
     } catch {
         localStorage.clear();
     }
@@ -125,7 +126,6 @@ function add_string(sub, b, DEPTH) {
         }
         delete sub[i]
     }
-    $('textarea').value = string;
 }
 
 function convert() {
@@ -133,6 +133,7 @@ function convert() {
     table_to_dict();
     localStorage.tree_dict = JSON.stringify(dict);
     add_string(dict, Array(MAX_DEPTH + 1).fill(String.fromCharCode(9474)), 0);
+    $('textarea').value = string;
 }
 
 function del() {
