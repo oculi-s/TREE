@@ -71,45 +71,48 @@ function td(r, c) {
 function table_to_dict() {
     for (var i = 0; i < MAX_DATA; i++) {
         if (td(i, 0)) {
-            add_data(dict, td(i, 0), i, 1);
+            var j = i + 1;
+            while (!td(j, 0) && j < MAX_DATA - 1) {
+                j++;
+            }
+            add_data(dict, td(i, 0), i, j, 1);
         }
     }
 }
 
-function add_data(sub, c, j, DEPTH) {
+function add_data(sub, c, s, e, DEPTH) {
     sub[c] = {};
-    for (var i = j + 1; i < MAX_DATA - 1; i++) {
-        if (td(i, DEPTH)) {
-            if (DEPTH < MAX_DEPTH - 1) {
-                if (td(i + 1, DEPTH + 1)) {
-                    add_data(sub[c], td(i, DEPTH), i, DEPTH + 1);
-                } else {
-                    sub[c][td(i, DEPTH)] = {};
-                }
+    for (var i = s + 1; i < e; i++) {
+        if (td(i, DEPTH) && DEPTH < MAX_DEPTH - 1) {
+            var j = i + 1;
+            while (!td(j, DEPTH) && j < MAX_DATA - 1) { j++; }
+            if (td(i + 1, DEPTH + 1)) {
+                add_data(sub[c], td(i, DEPTH), i, j, DEPTH + 1);
+            } else {
+                sub[c][td(i, DEPTH)] = {};
             }
         }
     }
 }
 
 var string;
-var start = Array(MAX_DEPTH + 1).fill(String.fromCharCode(9474));
 
-function add_string(sub, DEPTH) {
+function add_string(sub, b, DEPTH) {
     for (var i in sub) {
         var o = Object.keys(sub);
-        b = '';
+        var c = b.slice();
         if (DEPTH) {
-            b = start.slice(1, DEPTH).join('');
+            string += b.slice(0, DEPTH - 1).join('');
             if (o.length == 1) {
-                b += String.fromCharCode(9492);
-                start[DEPTH] = '  ';
+                c[DEPTH - 1] = '  ';
+                string += String.fromCharCode(9492);
             } else {
-                b += String.fromCharCode(9501);
+                string += String.fromCharCode(9501);
             }
         }
-        string += `${b}${i}\r\n`;
+        string += `${i}\r\n`;
         if (Object.keys(sub[i]).length) {
-            add_string(sub[i], DEPTH + 1);
+            add_string(sub[i], c, DEPTH + 1);
         }
         delete sub[i]
     }
@@ -118,7 +121,6 @@ function add_string(sub, DEPTH) {
 function convert() {
     string = '';
     table_to_dict();
-    console.log(dict);
-    add_string(dict, 0);
+    add_string(dict, Array(MAX_DEPTH + 1).fill(String.fromCharCode(9474)), 0);
     $('textarea').value = string;
 }
