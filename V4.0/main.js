@@ -13,7 +13,11 @@ for (var r = 0; r < MAX_DATA; r++) {
     t.innerHTML += temp;
 }
 if ('tree_dict' in localStorage) {
-    add_string(JSON.parse(localStorage.tree_dict), Array(MAX_DEPTH + 1).fill(String.fromCharCode(9474)), 0);
+    try {
+        add_string(JSON.parse(localStorage.tree_dict), Array(MAX_DEPTH + 1).fill(String.fromCharCode(9474)), 0);
+    } catch {
+        localStorage.clear();
+    }
 }
 
 $('body').onresize = wresize;
