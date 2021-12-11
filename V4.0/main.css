@@ -57,18 +57,7 @@ header>a {
 article {
     text-align: center;
     width: 100%;
-}
-
-article::after {
-    content: "";
-    background: rgba(0, 100, 0, 0.3);
-    opacity: 0.8;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: -1;
+    background: rgba(0, 50, 0, 0.5);
 }
 
 article>div {
