@@ -13,7 +13,7 @@ for (var r = 0; r < MAX_DATA; r++) {
     t.innerHTML += temp;
 }
 if ('tree_dict' in localStorage) {
-    add_string(localStorage.tree_dict, Array(MAX_DEPTH + 1).fill(String.fromCharCode(9474)), 0);
+    add_string(JSON.parse(localStorage.tree_dict), Array(MAX_DEPTH + 1).fill(String.fromCharCode(9474)), 0);
 }
 
 $('body').onresize = wresize;
@@ -126,7 +126,7 @@ function add_string(sub, b, DEPTH) {
 function convert() {
     string = '';
     table_to_dict();
-    localStorage.tree_dict = dict;
+    localStorage.tree_dict = JSON.stringify(dict);
     add_string(dict, Array(MAX_DEPTH + 1).fill(String.fromCharCode(9474)), 0);
     $('textarea').value = string;
 }
