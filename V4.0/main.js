@@ -12,6 +12,9 @@ for (var r = 0; r < MAX_DATA; r++) {
     temp += `</tr>`;
     t.innerHTML += temp;
 }
+if ('d' in localStorage) {
+    add_string(localStorage.d, Array(MAX_DEPTH + 1).fill(String.fromCharCode(9474)), 0);
+}
 
 $('body').onresize = wresize;
 
@@ -123,6 +126,7 @@ function add_string(sub, b, DEPTH) {
 function convert() {
     string = '';
     table_to_dict();
+    localStorage.d = dict;
     add_string(dict, Array(MAX_DEPTH + 1).fill(String.fromCharCode(9474)), 0);
     $('textarea').value = string;
 }
