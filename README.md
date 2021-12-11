@@ -1,8 +1,8 @@
 # tree
 
 > [restrictions](#restrictions-for-succesful-conversion)  
-> [How to Use(V4.0)](#how-to-use-v40)  
-> [How to Use(V3.0)](#how-to-use-v30)
+> [How to Use (V4.0)](#how-to-use-v40)  
+> [How to Use (V3.0)](#how-to-use-v30)
 
 ## overview
 [link](https://oculi-s.github.io/tree/) Activated by Github Pages
