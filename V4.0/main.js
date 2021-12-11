@@ -128,7 +128,7 @@ function convert() {
 }
 
 function del() {
-    if (confirm('delete?')) {
+    if (confirm('clear All?')) {
         var inp = document.querySelectorAll('input');
         for (var i = 0; i < inp.length; i++) {
             inp[i].value = '';
