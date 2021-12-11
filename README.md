@@ -5,6 +5,9 @@
 1) Realtime CSV-like data to tree diagram conversion webpage
 2) edit and convert for free
 
+> [How to Use(V4.0)](#how-to-use-v40)  
+> [How to Use(V3.0)](#how-to-use-v30)
+
 *Still developing*
 <br>
 <br>
@@ -21,7 +24,7 @@ or just press convert button<br>
 It is converted as below
 
 <div align=center>
-<img src=https://github.com/oculi-s/tree/blob/master/V4.0/main.gif width=100%>
+<img src=https://github.com/oculi-s/tree/blob/master/V4.0/prev.gif width=60%>
 </div>
 
 ### *some restrictions for succesful conversion*
