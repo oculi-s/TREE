@@ -10,24 +10,16 @@
 <body>
     <meta name=viewport content="width=device-width, initial-scale=1.0">
     <header>
-        <nav>
-            <label>
-                <input id=_cn type=checkbox />
-                <span class=i>menu</span>
-            </label>
-        </nav>
-        <ul id=_mu>
-            <li>Home</li>
-            <li>2</li>
-        </ul>
-        <a id=title href="./">
-            <span class=i style=color:green>park</span>
-            CSV to Tree converter
+        <a href="./">
+            <span class=i style=color:green>park</span> CSV to Tree converter
         </a>
     </header>
     <article>
         <div>
-            <table><tbody></tbody></table>
+            <table>
+                <tbody></tbody>
+            </table>
+            <br><button onclick=convert()>Convert</button><br>
             <textarea></textarea>
         </div>
     </article>
@@ -39,7 +31,6 @@
     </footer>
 
     <script type=text/javascript src=./V4.0/main.js></script>
-    <script type=text/javascript src=./V4.0/csv_to_table.js></script>
 </body>
 
 </html>

@@ -9,7 +9,7 @@
 <br>
 <br>
 
-## How to Use
+## How to Use (V3.0)
 ### 1) Prepare your csv file
 
 <div align=center>

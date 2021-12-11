@@ -1,11 +1,11 @@
 const _ot = document.getElementById('_ot')
-var _s;
+var string;
 _r = new FileReader();
 
 function _csv_to_table(_file) {
-    _s = '';
+    string = '';
     _r.readAsText(_file, 'UTF-8');
-    _r.onload = function (_s) {
+    _r.onload = function(_s) {
         _d = _csv_parser(_r.result);
         _s = _d[0][0] + '\r\n';
         for (i = 1; i < _d.length; i++) {
@@ -40,7 +40,7 @@ function _csv_to_table(_file) {
 function _csv_parser(d) {
     _a = [];
     _d = d.split('\r\n');
-    _d.forEach(function (e) {
+    _d.forEach(function(e) {
         _row = e.split(',');
         _a.push(_row);
     });
