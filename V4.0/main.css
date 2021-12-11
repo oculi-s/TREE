@@ -85,14 +85,14 @@ table td {
     border: 1px solid #000;
     color: #000;
     font-weight: normal;
+    min-width: 50px;
+    width: 100px;
 }
 
 td>input {
     background: transparent;
     border: none;
     cursor: cell;
-    min-width: 50px;
-    width: 100px;
 }
 
 td:focus {
