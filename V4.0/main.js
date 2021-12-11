@@ -124,3 +124,12 @@ function convert() {
     add_string(dict, Array(MAX_DEPTH + 1).fill(String.fromCharCode(9474)), 0);
     $('textarea').value = string;
 }
+
+function del() {
+    if (confirm('delete?')) {
+        var inp = document.querySelectorAll('input');
+        for (var i = 0; i < inp.length; i++) {
+            inp[i].value = '';
+        }
+    }
+}

@@ -15,6 +15,7 @@
 }
 
 .i {
+    font-size: 25px;
     font-family: 'Material Icons';
 }
 
@@ -102,10 +103,20 @@ td>input:focus {
     outline: none;
 }
 
-article>div>button {
+article button {
     height: 30px;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 0px;
+    cursor: pointer;
+    background: transparent;
+    color: white;
+}
+
+article>div>button:hover {
+    background: #aaa;
+    transition: all .3s;
 }
 
 article textarea {
