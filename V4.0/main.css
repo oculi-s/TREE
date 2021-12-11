@@ -63,7 +63,7 @@ article {
 article>div {
     display: inline-block;
     width: 55%;
-    background: rgba(0, 10, 0, 0.9);
+    background: rgba(0, 10, 0, 0.8);
 }
 
 article table {
