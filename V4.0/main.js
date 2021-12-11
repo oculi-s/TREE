@@ -13,6 +13,7 @@ for (var r = 0; r < MAX_DATA; r++) {
     t.innerHTML += temp;
 }
 if ('tree_dict' in localStorage) {
+    string = '';
     try {
         add_string(JSON.parse(localStorage.tree_dict), Array(MAX_DEPTH + 1).fill(String.fromCharCode(9474)), 0);
         $('textarea').value = string;
