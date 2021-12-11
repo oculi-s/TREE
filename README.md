@@ -1,12 +1,18 @@
 # tree
 
+> [restrictions](#restrictions-for-succesful-conversion)  
+> [How to Use(V4.0)](#how-to-use-v40)  
+> [How to Use(V3.0)](#how-to-use-v30)
+
 ## overview
 [link](https://oculi-s.github.io/tree/) Activated by Github Pages
 1) Realtime CSV-like data to tree diagram conversion webpage
 2) edit and convert for free
 
-> [How to Use(V4.0)](#how-to-use-v40)  
-> [How to Use(V3.0)](#how-to-use-v30)
+## restrictions for succesful conversion
+1) one data for one row each
+2) make sure the depth of data is to be column number
+3) data with same parent should have all different key value
 
 *Still developing*
 <br>
@@ -27,11 +33,6 @@ It is converted as below
 <img src=https://github.com/oculi-s/tree/blob/master/V4.0/prev.gif width=60%>
 </div>
 
-### *some restrictions for succesful conversion*
- - one data for one row each
- - make sure the depth of data is to be column number
- - data with same parent should have all different key value
-
 ## How to Use (V3.0)
 ### 1) Prepare your csv file
 
@@ -45,10 +46,6 @@ It is converted as below
 <div align=center>
 <img src=https://user-images.githubusercontent.com/44251667/130001138-a9eaca3d-f639-43d5-a517-113cf6f32df2.png width=30%>
 </div>
-
-### *some restrictions for succesful conversion*
- - one data for one row each
- - make sure the depth of data is to be column number
 
 ### 2) upload your file and press conversion button
 
