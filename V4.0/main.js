@@ -18,8 +18,10 @@ $('body').onresize = wresize;
 function wresize() {
     if (/Android|iPhone|ipad|iPod/i.test(navigator.userAgent)) {
         $('article').classList.add('m-a');
+        $('header a').classList.add('m-t');
     } else {
         $('article').classList.remove('m-a');
+        $('header a').classList.remove('m-t');
     }
 }
 wresize();

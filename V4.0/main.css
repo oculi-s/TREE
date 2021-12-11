@@ -3,6 +3,10 @@
     text-align: center;
 }
 
+.m-t {
+    margin-left: 0 !important;
+}
+
 :root {
     --fc: rgb(4, 22, 22);
 }
