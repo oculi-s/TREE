@@ -148,9 +148,10 @@ function convert(func) {
 
 function add_col() {
     MAX_DEPTH++;
-    $$('tr').forEach(tr => {
-        tr.innerHTML += `<td><input type=text data-c=${c} data-r=${r} onkeyup=cmove(this)></input></td>`
-    })
+    var tr = $$('tr');
+    for (var r = 0; r < tr.length; r++) {
+        tr[r].innerHTML += `<td contenteditable=true data-c=${c} data-r=${r} onkeyup=cmove(this)></td>`
+    }
 }
 
 function rem_col() {
@@ -166,7 +167,7 @@ function add_row() {
     MAX_DATA++;
     var temp = `<tr>`;
     for (var c = 0; c < MAX_DEPTH; c++) {
-        temp += `<td contenteditable=true data-c=${c} data-r=${r} onkeyup=cmove(this)></td>`
+        temp += `<td contenteditable=true data-c=${c} data-r=${MAX_DATA} onkeyup=cmove(this)></td>`
     }
     temp += `</tr>`;
     t.innerHTML += temp;
