@@ -44,28 +44,28 @@ function cmove(e) {
         var r = parseInt(e.dataset.r);
         var c = parseInt(e.dataset.c);
         if (event.keyCode == 38 && r > 0) {
-            t.children[r - 1].children[c].firstChild.focus();
+            t.children[r - 1].children[c].focus();
         } else if (event.keyCode == 40 && r < MAX_DATA - 1) {
-            t.children[r + 1].children[c].firstChild.focus();
+            t.children[r + 1].children[c].focus();
         } else if (event.keyCode == 37 && c > 0) {
-            if (!e.value) {
-                t.children[r].children[c - 1].firstChild.focus();
-            } else if (!e.selectionStart) {
+            if (!e.innerText) {
+                t.children[r].children[c - 1].focus();
+            } else if (!e.anchorOffset) {
                 if (!isend) {
                     isend = 1;
                 } else {
-                    t.children[r].children[c - 1].firstChild.focus();
+                    t.children[r].children[c - 1].focus();
                     isend = 0;
                 }
             }
         } else if (event.keyCode == 39 && c < MAX_DEPTH - 1) {
-            if (!e.value) {
-                t.children[r].children[c + 1].firstChild.focus();
-            } else if (e.selectionEnd == e.value.length) {
+            if (!e.innerText) {
+                t.children[r].children[c + 1].focus();
+            } else if (e.anchorOffset == e.innerText.length) {
                 if (!isend) {
                     isend = 1;
                 } else {
-                    t.children[r].children[c + 1].firstChild.focus();
+                    t.children[r].children[c + 1].focus();
                     isend = 0;
                 }
             }
@@ -183,12 +183,12 @@ function upload() {
     inp.click();
     inp.onchange = async() => {
         var csv = await inp.files[0].text();
-        csv = csv.split('\r\n');
+        csv = csv.split('\r\n').slice(0, MAX_DATA);
         var i, j;
         for (i = 0; i < csv.length; i++) {
-            var row = csv[i].split(',');
+            var row = csv[i].split(',').slice(0, MAX_DEPTH);
             for (j = 0; j < row.length; j++) {
-                $$('tr')[i].childNodes[j].innerText = row[j];
+                t.children[i].children[j].innerText = row[j];
                 arr[i][j] = row[j];
             }
         };
@@ -198,7 +198,7 @@ function upload() {
 
 function remove() {
     if (confirm('clear All?')) {
-        $$('input').forEach(e => { e.value = ''; });
+        $$('input').forEach(e => { e.innerText = ''; });
     }
 }
 
