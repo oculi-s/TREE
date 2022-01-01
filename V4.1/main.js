@@ -4,7 +4,7 @@ window.$$ = document.querySelectorAll.bind(document);
 var MAX_DEPTH = 6;
 var MAX_DATA = 20;
 const ss = sessionStorage
-const t = $('article tbody');
+const t = $('tbody');
 
 $$('i, .i').forEach(e => e.classList.add('material-icons'))
 
