@@ -1,8 +1,9 @@
 window.$ = document.querySelector.bind(document);
 window.$$ = document.querySelectorAll.bind(document);
 
-const MAX_DEPTH = 5;
+const MAX_DEPTH = 6;
 const MAX_DATA = 20;
+const ss = sessionStorage
 const t = $('article tbody');
 
 for (var r = 0; r < MAX_DATA; r++) {
@@ -13,13 +14,13 @@ for (var r = 0; r < MAX_DATA; r++) {
     temp += `</tr>`;
     t.innerHTML += temp;
 }
-if ('tree_dict' in localStorage) {
+if ('tree_dict' in ss) {
     string = '';
     try {
-        add_string(JSON.parse(localStorage.tree_dict), Array(MAX_DEPTH + 1).fill(String.fromCharCode(9474)), 0);
+        add_string(JSON.parse(ss.tree_dict), Array(MAX_DEPTH + 1).fill(String.fromCharCode(9474)), 0);
         $('textarea').value = string;
     } catch {
-        localStorage.clear();
+        ss.clear();
     }
 }
 
@@ -88,7 +89,7 @@ function el(r, c) {
     return arr[r][c];
 }
 
-function table_to_dict(func) {
+function table_to_dict(func = td) {
     for (var i = 0; i < MAX_DATA; i++) {
         if (func(i, 0)) {
             var j = i + 1;
@@ -144,7 +145,7 @@ function add_string(sub, b, DEPTH) {
 function convert(func) {
     string = '';
     table_to_dict(func);
-    sessionStorage.tree_dict = JSON.stringify(dict);
+    ss.tree_dict = JSON.stringify(dict);
     add_string(dict, Array(MAX_DEPTH + 1).fill(String.fromCharCode(9474)), 0);
     $('textarea').value = string;
 }
