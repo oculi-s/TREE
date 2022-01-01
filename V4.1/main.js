@@ -6,8 +6,6 @@ var MAX_DATA = 20;
 const ss = sessionStorage
 const t = $('tbody');
 
-$$('i, .i').forEach(e => e.classList.add('material-icons'))
-
 for (var r = 0; r < MAX_DATA; r++) {
     var temp = `<tr>`;
     for (var c = 0; c < MAX_DEPTH; c++) {
