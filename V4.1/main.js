@@ -9,7 +9,7 @@ const t = $('tbody');
 for (var r = 0; r < MAX_DATA; r++) {
     var temp = `<tr>`;
     for (var c = 0; c < MAX_DEPTH; c++) {
-        temp += `<td contenteditable=true data-c=${c} data-r=${r} onkeyup=cmove(this)></td>`
+        temp += `<td contenteditable=true data-c=${c} data-r=${r} onkeydown=cmove(this)></td>`
     }
     temp += `</tr>`;
     t.innerHTML += temp;
@@ -71,7 +71,8 @@ function cmove(e) {
                 }
             }
         }
-    } else if (event.keyCode == 13) {
+    } else if (event.which == 13) {
+        event.preventDefault();
         convert();
     }
 }
@@ -150,7 +151,7 @@ function add_col() {
     MAX_DEPTH++;
     var tr = $$('tr');
     for (var r = 0; r < tr.length; r++) {
-        tr[r].innerHTML += `<td contenteditable=true data-c=${c} data-r=${r} onkeyup=cmove(this)></td>`
+        tr[r].innerHTML += `<td contenteditable=true data-c=${c} data-r=${r} onkeydown=cmove(this)></td>`
     }
 }
 
@@ -167,7 +168,7 @@ function add_row() {
     MAX_DATA++;
     var temp = `<tr>`;
     for (var c = 0; c < MAX_DEPTH; c++) {
-        temp += `<td contenteditable=true data-c=${c} data-r=${MAX_DATA} onkeyup=cmove(this)></td>`
+        temp += `<td contenteditable=true data-c=${c} data-r=${MAX_DATA} onkeydown=cmove(this)></td>`
     }
     temp += `</tr>`;
     t.innerHTML += temp;
