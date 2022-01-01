@@ -50,24 +50,24 @@ function cmove(e) {
         } else if (event.keyCode == 37 && c > 0) {
             if (!e.innerText) {
                 t.children[r].children[c - 1].focus();
-            } else if (!e.anchorOffset) {
-                if (!isend) {
-                    isend = 1;
-                } else {
-                    t.children[r].children[c - 1].focus();
-                    isend = 0;
-                }
+                // } else if (!e.anchorOffset) {
+                //     if (!isend) {
+                //         isend = 1;
+                //     } else {
+                //         t.children[r].children[c - 1].focus();
+                //         isend = 0;
+                //     }
             }
         } else if (event.keyCode == 39 && c < MAX_DEPTH - 1) {
             if (!e.innerText) {
                 t.children[r].children[c + 1].focus();
-            } else if (e.anchorOffset == e.innerText.length) {
-                if (!isend) {
-                    isend = 1;
-                } else {
-                    t.children[r].children[c + 1].focus();
-                    isend = 0;
-                }
+                // } else if (e.anchorOffset == e.innerText.length) {
+                //     if (!isend) {
+                //         isend = 1;
+                //     } else {
+                //         t.children[r].children[c + 1].focus();
+                //         isend = 0;
+                //     }
             }
         }
     } else if (event.keyCode == 13) {
