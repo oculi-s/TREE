@@ -1,8 +1,8 @@
 window.$ = document.querySelector.bind(document);
 window.$$ = document.querySelectorAll.bind(document);
 
-const MAX_DEPTH = 6;
-const MAX_DATA = 20;
+var MAX_DEPTH = 6;
+var MAX_DATA = 20;
 const ss = sessionStorage
 const t = $('article tbody');
 
@@ -99,11 +99,6 @@ function table_to_dict(func = td) {
     }
 }
 
-function dict_to_table() {
-    var dict = JSON.parse(sessionStorage.tree_dict);
-
-}
-
 function add_data(sub, c, s, e, DEPTH, func) {
     sub[c] = {};
     for (var i = s + 1; i < e; i++) {
@@ -148,6 +143,13 @@ function convert(func) {
     ss.tree_dict = JSON.stringify(dict);
     add_string(dict, Array(MAX_DEPTH + 1).fill(String.fromCharCode(9474)), 0);
     $('textarea').value = string;
+}
+
+function add_col() {
+    MAX_DEPTH++;
+    $$('tr').forEach(tr => {
+        tr.innerHTML += `<td><input type=text data-c=${c} data-r=${r} onkeyup=cmove(this)></input></td>`
+    })
 }
 
 function upload() {
