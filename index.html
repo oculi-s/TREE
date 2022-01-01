@@ -16,11 +16,21 @@
     </header>
     <section>
         <article>
-            <div style="text-align: end;">
+            <span style="text-align: start;">
+                <i>compare_arrows</i>
+                <button onclick=add_col() class=i>add</button>
+                <button onclick=rem_col() class=i>remove</button>
+            </span>
+            <span style="text-align: start;">
+                <i>swap_vert</i>
+                <button onclick=add_row() class=i>add</button>
+                <button onclick=rem_row() class=i>remove</button>
+            </span>
+            <span style="text-align: end;">
                 <button onclick=upload() class=i>upload</button>
                 <button onclick=remove() class=i>delete</button>
                 <button onclick=download() class=i>download</button>
-            </div>
+            </span>
             <table>
                 <tbody></tbody>
             </table>

@@ -16,18 +16,6 @@
     --fc: rgb(4, 22, 22);
 }
 
-@font-face {
-    font-family: 'Material Icons';
-    font-style: normal;
-    font-weight: 400;
-    src: url(https://fonts.gstatic.com/s/materialicons/v94/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');
-}
-
-.i {
-    font-size: 25px;
-    font-family: 'Material Icons';
-}
-
 a {
     text-decoration: none;
     color: white;
@@ -82,6 +70,11 @@ article {
     background: rgba(0, 10, 0, 0.8);
 }
 
+i {
+    font-weight: bold;
+    color: #aaa;
+}
+
 article table {
     border-collapse: collapse;
     display: inline-block;
@@ -114,6 +107,11 @@ td>input:focus {
 
 td:last-child {
     display: none;
+}
+
+article>span {
+    display: inline-block;
+    width: 30%;
 }
 
 article button {

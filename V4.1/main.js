@@ -6,6 +6,8 @@ var MAX_DATA = 20;
 const ss = sessionStorage
 const t = $('article tbody');
 
+$$('i, .i').forEach(e => e.classList.add('material-icons'))
+
 for (var r = 0; r < MAX_DATA; r++) {
     var temp = `<tr>`;
     for (var c = 0; c < MAX_DEPTH; c++) {
@@ -150,6 +152,32 @@ function add_col() {
     $$('tr').forEach(tr => {
         tr.innerHTML += `<td><input type=text data-c=${c} data-r=${r} onkeyup=cmove(this)></input></td>`
     })
+}
+
+function rem_col() {
+    if (MAX_DEPTH > 2) {
+        MAX_DEPTH--;
+        $$('td:last-child').forEach(e => {
+            e.remove();
+        })
+    }
+}
+
+function add_row() {
+    MAX_DATA++;
+    var temp = `<tr>`;
+    for (var c = 0; c < MAX_DEPTH; c++) {
+        temp += `<td><input type=text data-c=${c} data-r=${r} onkeyup=cmove(this)></input></td>`
+    }
+    temp += `</tr>`;
+    t.innerHTML += temp;
+}
+
+function rem_row() {
+    if (MAX_DATA > 1) {
+        MAX_DATA--;
+        $('tr:last-child').remove();
+    }
 }
 
 function upload() {
