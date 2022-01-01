@@ -101,6 +101,7 @@ td {
     background: transparent;
     border: none;
     cursor: cell;
+    max-width: 50px;
     width: 50px;
 }
 
@@ -115,7 +116,8 @@ td:last-child {
 
 article>span {
     display: inline-block;
-    width: 30%;
+    width: 27%;
+    padding: 0 10px;
 }
 
 button {
