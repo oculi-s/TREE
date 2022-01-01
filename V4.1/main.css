@@ -136,6 +136,7 @@ article textarea {
     min-height: 500px;
     margin-bottom: 30px;
     font-size: 12pt;
+    font-family: monospace !important;
     border: none;
     border-radius: 0%;
 }
