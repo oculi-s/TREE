@@ -215,5 +215,8 @@ function download() {
     a = document.createElement('a');
     a.href = URL.createObjectURL(new Blob([csv]), { type: 'text/csv' });
     a.download = 'tree.csv';
+    a.style.display = 'none';
+    t.appendChild(a);
     a.click();
+    t.removeChild(a);
 }
