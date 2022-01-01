@@ -43,6 +43,7 @@ function cmove(e) {
     if (event.keyCode > 36 && event.keyCode < 41) {
         var r = parseInt(e.dataset.r);
         var c = parseInt(e.dataset.c);
+        var sel = getSelection();
         if (event.keyCode == 38 && r > 0) {
             t.children[r - 1].children[c].focus();
         } else if (event.keyCode == 40 && r < MAX_DATA - 1) {
@@ -50,24 +51,24 @@ function cmove(e) {
         } else if (event.keyCode == 37 && c > 0) {
             if (!e.innerText) {
                 t.children[r].children[c - 1].focus();
-                // } else if (!e.anchorOffset) {
-                //     if (!isend) {
-                //         isend = 1;
-                //     } else {
-                //         t.children[r].children[c - 1].focus();
-                //         isend = 0;
-                //     }
+            } else if (!sel.anchorOffset) {
+                if (!isend) {
+                    isend = 1;
+                } else {
+                    t.children[r].children[c - 1].focus();
+                    isend = 0;
+                }
             }
         } else if (event.keyCode == 39 && c < MAX_DEPTH - 1) {
             if (!e.innerText) {
                 t.children[r].children[c + 1].focus();
-                // } else if (e.anchorOffset == e.innerText.length) {
-                //     if (!isend) {
-                //         isend = 1;
-                //     } else {
-                //         t.children[r].children[c + 1].focus();
-                //         isend = 0;
-                //     }
+            } else if (sel.anchorOffset == e.innerText.length) {
+                if (!isend) {
+                    isend = 1;
+                } else {
+                    t.children[r].children[c + 1].focus();
+                    isend = 0;
+                }
             }
         }
     } else if (event.keyCode == 13) {
