@@ -199,7 +199,7 @@ function upload() {
 
 function remove() {
     if (confirm('clear All?')) {
-        $$('input').forEach(e => { e.innerText = ''; });
+        $$('td').forEach(e => { e.innerHTML = ''; });
     }
 }
 
