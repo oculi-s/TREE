@@ -1,0 +1,188 @@
+window.$ = document.querySelector.bind(document);
+window.$$ = document.querySelectorAll.bind(document);
+
+const MAX_DEPTH = 5;
+const MAX_DATA = 20;
+const t = $('article tbody');
+
+for (var r = 0; r < MAX_DATA; r++) {
+    var temp = `<tr>`;
+    for (var c = 0; c < MAX_DEPTH; c++) {
+        temp += `<td><input type=text data-c=${c} data-r=${r} onkeyup=cmove(this)></input></td>`
+    }
+    temp += `</tr>`;
+    t.innerHTML += temp;
+}
+if ('tree_dict' in localStorage) {
+    string = '';
+    try {
+        add_string(JSON.parse(localStorage.tree_dict), Array(MAX_DEPTH + 1).fill(String.fromCharCode(9474)), 0);
+        $('textarea').value = string;
+    } catch {
+        localStorage.clear();
+    }
+}
+
+$('body').onresize = wresize;
+
+function wresize() {
+    if (/Android|iPhone|ipad|iPod/i.test(navigator.userAgent || innerWidth < 400)) {
+        $('article').classList.add('m-a');
+        $('header').classList.add('m-h');
+    } else {
+        $('article').classList.remove('m-a');
+        $('header').classList.remove('m-h');
+    }
+}
+wresize();
+
+var isend = 0;
+
+function cmove(e) {
+    if (event.keyCode > 36 && event.keyCode < 41) {
+        var r = parseInt(e.dataset.r);
+        var c = parseInt(e.dataset.c);
+        if (event.keyCode == 38 && r > 0) {
+            t.children[r - 1].children[c].firstChild.focus();
+        } else if (event.keyCode == 40 && r < MAX_DATA - 1) {
+            t.children[r + 1].children[c].firstChild.focus();
+        } else if (event.keyCode == 37 && c > 0) {
+            if (!e.value) {
+                t.children[r].children[c - 1].firstChild.focus();
+            } else if (!e.selectionStart) {
+                if (!isend) {
+                    isend = 1;
+                } else {
+                    t.children[r].children[c - 1].firstChild.focus();
+                    isend = 0;
+                }
+            }
+        } else if (event.keyCode == 39 && c < MAX_DEPTH - 1) {
+            if (!e.value) {
+                t.children[r].children[c + 1].firstChild.focus();
+            } else if (e.selectionEnd == e.value.length) {
+                if (!isend) {
+                    isend = 1;
+                } else {
+                    t.children[r].children[c + 1].firstChild.focus();
+                    isend = 0;
+                }
+            }
+        }
+    } else if (event.keyCode == 13) {
+        convert();
+    }
+}
+
+var dict = {};
+var arr = Array(MAX_DATA).fill('');
+for (i = 0; i < MAX_DATA; i++) {
+    arr[i] = Array(MAX_DEPTH).fill('')
+}
+
+function td(r, c) {
+    return $$('tr')[r].children[c].firstChild.value;
+}
+
+function el(r, c) {
+    return arr[r][c];
+}
+
+function table_to_dict(func) {
+    for (var i = 0; i < MAX_DATA; i++) {
+        if (func(i, 0)) {
+            var j = i + 1;
+            while (!func(j, 0) && j++ < MAX_DATA - 1) {}
+            add_data(dict, func(i, 0), i, j, 1, func);
+        }
+    }
+}
+
+function dict_to_table() {
+    var dict = JSON.parse(sessionStorage.tree_dict);
+
+}
+
+function add_data(sub, c, s, e, DEPTH, func) {
+    sub[c] = {};
+    for (var i = s + 1; i < e; i++) {
+        if (func(i, DEPTH) && DEPTH < MAX_DEPTH - 1) {
+            var j = i + 1;
+            while (!func(j, DEPTH) && j < MAX_DATA - 1) { j++; }
+            if (func(i + 1, DEPTH + 1)) {
+                add_data(sub[c], func(i, DEPTH), i, j, DEPTH + 1, func);
+            } else {
+                sub[c][func(i, DEPTH)] = {};
+            }
+        }
+    }
+}
+
+var string;
+
+function add_string(sub, b, DEPTH) {
+    for (var i in sub) {
+        var o = Object.keys(sub);
+        var c = b.slice();
+        if (DEPTH) {
+            string += b.slice(0, DEPTH - 1).join('');
+            if (o.length == 1) {
+                c[DEPTH - 1] = '  ';
+                string += String.fromCharCode(9492);
+            } else {
+                string += String.fromCharCode(9501);
+            }
+        }
+        string += `${i}\r\n`;
+        if (Object.keys(sub[i]).length) {
+            add_string(sub[i], c, DEPTH + 1);
+        }
+        delete sub[i]
+    }
+}
+
+function convert(func) {
+    string = '';
+    table_to_dict(func);
+    sessionStorage.tree_dict = JSON.stringify(dict);
+    add_string(dict, Array(MAX_DEPTH + 1).fill(String.fromCharCode(9474)), 0);
+    $('textarea').value = string;
+}
+
+function upload() {
+    var inp = $('input[type=file]');
+    inp.click();
+    inp.onchange = async() => {
+        var csv = await inp.files[0].text();
+        csv = csv.split('\r\n');
+        var i, j;
+        for (i = 0; i < csv.length; i++) {
+            var row = csv[i].split(',');
+            for (j = 0; j < row.length; j++) {
+                $$('tr')[i].childNodes[j].firstChild.value = row[j];
+                arr[i][j] = row[j];
+            }
+        };
+        convert(el);
+    };
+};
+
+function remove() {
+    if (confirm('clear All?')) {
+        $$('input').forEach(e => { e.value = ''; });
+    }
+}
+
+function download() {
+    var csv = '';
+    $$('tr').forEach(tr => {
+        tr.childNodes.forEach(td => {
+            csv += td.firstChild.value + ','
+        })
+        csv += '\r\n';
+    });
+    a = document.createElement('a');
+    a.href = URL.createObjectURL(new Blob([csv]), { type: 'text/csv' });
+    a.download = 'tree.csv';
+    a.click();
+}

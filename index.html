@@ -4,38 +4,39 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no" />
     <title>Realtime CSV to Tree converter</title>
-    <link rel=stylesheet href=./V4.0/main.css>
+    <link rel=stylesheet href=./V4.1/main.css>
     <link rel=stylesheet href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 
 <body>
     <header>
-        <div>
-            <a href='./V3.0/'>Go to Prev version(3.0)</a>
-        </div>
         <a href="./">
             <span class=i style=color:green>park</span> Realtime CSV to Tree converter
         </a>
     </header>
-    <article>
-        <div>
+    <section>
+        <article>
             <div style="text-align: end;">
-                <button onclick="del()" class=i>delete</button>
+                <button onclick=upload() class=i>upload</button>
+                <button onclick=remove() class=i>delete</button>
+                <button onclick=download() class=i>download</button>
             </div>
             <table>
                 <tbody></tbody>
             </table>
-            <br><button onclick=convert()>Convert</button><br>
+            <br>
+            <input type=file accept=".csv" style="display:none">
+            <button onclick="convert(tr)">Convert</button><br>
             <textarea></textarea>
-        </div>
-    </article>
+        </article>
+    </section>
     <footer>
         <div>
             <b>Tree </b>by <a href='https://github.com/oculi-s'>oculis</a>
         </div>
     </footer>
 
-    <script type=text/javascript src=./V4.0/main.js></script>
+    <script type=text/javascript src=./V4.1/main.js></script>
 </body>
 
 </html>
