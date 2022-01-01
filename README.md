@@ -1,8 +1,7 @@
 # tree
 
 > [restrictions](#restrictions-for-succesful-conversion)  
-> [How to Use (V4.0)](#how-to-use-v40)  
-> [How to Use (V3.0)](#how-to-use-v30)
+> [How to Use (V4.1)](#how-to-use-v41)  
 
 ## overview
 [link](https://oculi-s.github.io/tree/) Activated by Github Pages
@@ -18,8 +17,8 @@
 <br>
 <br>
 
-## How to Use (V4.0)
-### 1) Fill input form online
+## How to Use (V4.1)
+### 1) fill in textarea online
 
 <div align=center>
 <img src=https://user-images.githubusercontent.com/44251667/145671829-3ca3d3e6-ee19-4fa3-8a47-de5f1a55d550.png width=40%>
@@ -33,22 +32,7 @@ It is converted as below
 <img src=https://github.com/oculi-s/tree/blob/master/V4.1/prev.gif width=60%>
 </div>
 
-## How to Use (V3.0)
-### 1) Prepare your csv file
+### 2) upload your csv file and convert
+it is converted automatically
 
-<div align=center>
-<img src=https://user-images.githubusercontent.com/44251667/130000722-2935e79b-37f3-410b-ba5e-145ff894c6ea.png width=40%>
-
-</div>
-
-It is converted as below
-
-<div align=center>
-<img src=https://user-images.githubusercontent.com/44251667/130001138-a9eaca3d-f639-43d5-a517-113cf6f32df2.png width=30%>
-</div>
-
-### 2) upload your file and press conversion button
-
-<div align=center>
-<img src=https://user-images.githubusercontent.com/44251667/130000997-d228fbef-db9d-4baf-a24c-46a32d6a0476.png width=70%>
-</div>
+### 3) download table as csv file
