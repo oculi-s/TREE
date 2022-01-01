@@ -9,7 +9,7 @@ const t = $('tbody');
 for (var r = 0; r < MAX_DATA; r++) {
     var temp = `<tr>`;
     for (var c = 0; c < MAX_DEPTH; c++) {
-        temp += `<td><input type=text data-c=${c} data-r=${r} onkeyup=cmove(this)></input></td>`
+        temp += `<td contenteditable=true data-c=${c} data-r=${r} onkeyup=cmove(this)></td>`
     }
     temp += `</tr>`;
     t.innerHTML += temp;
@@ -82,7 +82,7 @@ for (i = 0; i < MAX_DATA; i++) {
 }
 
 function td(r, c) {
-    return $$('tr')[r].children[c].firstChild.value;
+    return $$('tr')[r].children[c].innerText;
 }
 
 function el(r, c) {
@@ -165,7 +165,7 @@ function add_row() {
     MAX_DATA++;
     var temp = `<tr>`;
     for (var c = 0; c < MAX_DEPTH; c++) {
-        temp += `<td><input type=text data-c=${c} data-r=${r} onkeyup=cmove(this)></input></td>`
+        temp += `<td contenteditable=true data-c=${c} data-r=${r} onkeyup=cmove(this)></td>`
     }
     temp += `</tr>`;
     t.innerHTML += temp;
@@ -188,7 +188,7 @@ function upload() {
         for (i = 0; i < csv.length; i++) {
             var row = csv[i].split(',');
             for (j = 0; j < row.length; j++) {
-                $$('tr')[i].childNodes[j].firstChild.value = row[j];
+                $$('tr')[i].childNodes[j].innerText = row[j];
                 arr[i][j] = row[j];
             }
         };
@@ -206,7 +206,7 @@ function download() {
     var csv = '';
     $$('tr').forEach(tr => {
         tr.childNodes.forEach(td => {
-            csv += td.firstChild.value + ','
+            csv += td.innerText + ','
         })
         csv += '\r\n';
     });

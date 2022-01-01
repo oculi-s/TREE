@@ -97,7 +97,7 @@ table td {
     font-weight: normal;
 }
 
-td>input {
+td {
     background: transparent;
     border: none;
     cursor: cell;
@@ -106,9 +106,6 @@ td>input {
 
 td:focus {
     background: #aaa;
-}
-
-td>input:focus {
     outline: none;
 }
 
