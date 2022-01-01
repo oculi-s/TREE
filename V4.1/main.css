@@ -118,7 +118,7 @@ article>span {
     width: 30%;
 }
 
-article button {
+button {
     height: 30px;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -129,12 +129,12 @@ article button {
     color: white;
 }
 
-article>button:hover {
-    background: #aaa;
+button:hover {
+    background: #111;
     transition: all .3s;
 }
 
-article textarea {
+textarea {
     min-width: 80%;
     height: 50% !important;
     min-height: 500px;
@@ -145,7 +145,7 @@ article textarea {
     border-radius: 0%;
 }
 
-article textarea:focus {
+textarea:focus {
     outline: none;
 }
 

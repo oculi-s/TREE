@@ -36,7 +36,10 @@
             </table>
             <br>
             <input type=file accept=".csv" style="display:none">
-            <button onclick="convert()">Convert</button><br>
+            <span>
+                <button onclick="convert()">Convert</button>
+                <button onclick='navigator.clipboard.writeText($("textarea").value)' class=i>content_copy</button>
+            </span>
             <textarea></textarea>
         </article>
     </section>
