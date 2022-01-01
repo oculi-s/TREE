@@ -212,11 +212,6 @@ function download() {
         })
         csv += '\r\n';
     });
-    a = document.createElement('a');
-    a.href = URL.createObjectURL(new Blob([csv]), { type: 'text/csv' });
-    a.download = 'tree.csv';
-    a.style.display = 'none';
-    t.appendChild(a);
-    a.click();
-    t.removeChild(a);
+    file = new Blob([csv]), { type: 'text/csv' };
+    saveAs(file, 'tree.csv');
 }
