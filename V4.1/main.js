@@ -152,11 +152,11 @@ function convert(func) {
 }
 
 function add_col() {
-    MAX_DEPTH++;
     var tr = $$('tr');
     for (var r = 0; r < tr.length; r++) {
-        tr[r].innerHTML += new_td(MAX_DEPTH - 1, r);
+        tr[r].innerHTML += new_td(MAX_DEPTH, r);
     }
+    MAX_DEPTH++;
 }
 
 function rem_col() {
@@ -169,13 +169,13 @@ function rem_col() {
 }
 
 function add_row() {
-    MAX_DATA++;
     var temp = `<tr>`;
     for (var c = 0; c < MAX_DEPTH; c++) {
         temp += new_td(c, MAX_DATA);
     }
     temp += `</tr>`;
     t.innerHTML += temp;
+    MAX_DATA++;
 }
 
 function rem_row() {
