@@ -190,7 +190,7 @@ function upload() {
         csv = csv.split('\r\n');
         csv.pop();
         while (csv.length > MAX_DATA) { add_row(); }
-        while (csv[0].split(',').length > MAX_DEPTH) { add_col(); }
+        while (csv[0].split(',').length >= MAX_DEPTH) { add_col(); }
         init_arr();
         var i, j;
         for (i = 0; i < csv.length; i++) {
