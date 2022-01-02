@@ -41,7 +41,10 @@ function cmove(e) {
         var sel = getSelection();
         if (event.keyCode == 38 && r > 0) {
             t.children[r - 1].children[c].focus();
-        } else if (event.keyCode == 40 && r < MAX_DATA - 1) {
+        } else if (event.keyCode == 40) {
+            if (r == MAX_DATA - 1){
+                add_row();
+            }
             t.children[r + 1].children[c].focus();
         } else if (event.keyCode == 37 && c > 0) {
             if (!e.innerText) {
@@ -54,7 +57,10 @@ function cmove(e) {
                     isend = 0;
                 }
             }
-        } else if (event.keyCode == 39 && c < MAX_DEPTH - 1) {
+        } else if (event.keyCode == 39) {
+            if (c == MAX_DEPTH - 1){
+                add_col();
+            }
             if (!e.innerText) {
                 t.children[r].children[c + 1].focus();
             } else if (sel.anchorOffset == e.innerText.length) {
