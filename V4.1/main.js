@@ -2,7 +2,7 @@ window.$ = document.querySelector.bind(document);
 window.$$ = document.querySelectorAll.bind(document);
 
 var MAX_DEPTH = 6;
-var MAX_DATA = 20;
+var MAX_DATA = 21;
 const ss = sessionStorage
 const t = $('tbody');
 
@@ -42,7 +42,7 @@ function cmove(e) {
         if (event.keyCode == 38 && r > 0) {
             t.children[r - 1].children[c].focus();
         } else if (event.keyCode == 40) {
-            if (r == MAX_DATA - 1){
+            if (r == MAX_DATA - 2){
                 add_row();
             }
             t.children[r + 1].children[c].focus();
@@ -195,8 +195,8 @@ function upload() {
         var csv = await inp.files[0].text();
         csv = csv.split('\r\n');
         csv.pop();
-        while (csv.length > MAX_DATA) { add_row(); }
-        while (csv[0].split(',').length > MAX_DEPTH) { add_col(); }
+        while (csv.length > MAX_DATA - 1) { add_row(); }
+        while (csv[0].split(',').length > MAX_DEPTH - 1) { add_col(); }
         init_arr();
         var i, j;
         for (i = 0; i < csv.length; i++) {
