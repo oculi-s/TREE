@@ -58,7 +58,7 @@ function cmove(e) {
                 }
             }
         } else if (event.keyCode == 39) {
-            if (c == MAX_DEPTH - 1){
+            if (c == MAX_DEPTH - 2){
                 add_col();
             }
             if (!e.innerText) {
