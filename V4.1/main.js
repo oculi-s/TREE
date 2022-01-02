@@ -155,7 +155,7 @@ function add_col() {
     MAX_DEPTH++;
     var tr = $$('tr');
     for (var r = 0; r < tr.length; r++) {
-        tr[r].innerHTML += new_td(MAX_DEPTH, r);
+        tr[r].innerHTML += new_td(MAX_DEPTH - 1, r);
     }
 }
 
