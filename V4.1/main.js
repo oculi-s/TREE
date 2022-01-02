@@ -6,7 +6,7 @@ var MAX_DATA = 20;
 const ss = sessionStorage
 const t = $('tbody');
 
-function new_td(c, r){
+function new_td(c, r) {
     return `<td contenteditable=true data-c=${c} data-r=${r} onkeydown=cmove(this)></td>`;
 }
 
@@ -17,15 +17,6 @@ for (var r = 0; r < MAX_DATA; r++) {
     }
     temp += `</tr>`;
     t.innerHTML += temp;
-}
-if ('tree_dict' in ss) {
-    string = '';
-    try {
-        add_string(JSON.parse(ss.tree_dict), Array(MAX_DEPTH + 1).fill(String.fromCharCode(9474)), 0);
-        $('textarea').value = string;
-    } catch {
-        ss.clear();
-    }
 }
 
 $('body').onresize = wresize;
@@ -82,9 +73,13 @@ function cmove(e) {
 }
 
 var dict = {};
-var arr = Array(MAX_DATA).fill('');
-for (i = 0; i < MAX_DATA; i++) {
-    arr[i] = Array(MAX_DEPTH).fill('')
+var arr = [];
+
+function init_arr() {
+    arr = Array(MAX_DATA).fill('');
+    for (i = 0; i < MAX_DATA; i++) {
+        arr[i] = Array(MAX_DEPTH).fill('')
+    }
 }
 
 function td(r, c) {
@@ -99,7 +94,7 @@ function table_to_dict(func = td) {
     for (var i = 0; i < MAX_DATA; i++) {
         if (func(i, 0)) {
             var j = i + 1;
-            while (!func(j, 0) && j++ < MAX_DATA - 1) {}
+            while (!func(j, 0) && j++ < MAX_DATA - 1) { }
             add_data(dict, func(i, 0), i, j, 1, func);
         }
     }
@@ -110,7 +105,9 @@ function add_data(sub, c, s, e, DEPTH, func) {
     for (var i = s + 1; i < e; i++) {
         if (func(i, DEPTH) && DEPTH < MAX_DEPTH - 1) {
             var j = i + 1;
-            while (!func(j, DEPTH) && j < MAX_DATA - 1) { j++; }
+            while (!func(j, DEPTH) && j < MAX_DATA - 1) {
+                j++;
+            }
             if (func(i + 1, DEPTH + 1)) {
                 add_data(sub[c], func(i, DEPTH), i, j, DEPTH + 1, func);
             } else {
@@ -188,24 +185,31 @@ function rem_row() {
 function upload() {
     var inp = $('input[type=file]');
     inp.click();
-    inp.onchange = async() => {
+    inp.onchange = async () => {
         var csv = await inp.files[0].text();
-        csv = csv.split('\r\n').slice(0, MAX_DATA);
+        csv = csv.split('\r\n');
+        csv.pop();
+        while (csv.length > MAX_DATA) { add_row(); }
+        while (csv[0].split(',').length > MAX_DEPTH) { add_col(); }
+        init_arr();
         var i, j;
         for (i = 0; i < csv.length; i++) {
-            var row = csv[i].split(',').slice(0, MAX_DEPTH);
+            var row = csv[i].split(',');
             for (j = 0; j < row.length; j++) {
-                t.children[i].children[j].innerText = row[j];
-                arr[i][j] = row[j];
+                t.children[i].children[j].innerText = row[j].replace(/\n|\r*/g, "");
+                arr[i][j] = row[j].replace(/\n|\r*/g, "");
             }
-        };
+        }
         convert(el);
-    };
-};
+    }
+}
+
 
 function remove() {
     if (confirm('clear All?')) {
-        $$('td').forEach(e => { e.innerHTML = ''; });
+        $$('td').forEach(e => {
+            e.innerHTML = '';
+        });
     }
 }
 
@@ -217,6 +221,8 @@ function download() {
         })
         csv += '\r\n';
     });
-    file = new Blob([csv]), { type: 'text/csv' };
+    file = new Blob([csv]), {
+        type: 'text/csv'
+    }
     saveAs(file, 'tree.csv');
 }
