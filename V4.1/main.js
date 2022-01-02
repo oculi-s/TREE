@@ -189,13 +189,8 @@ function upload() {
         var csv = await inp.files[0].text();
         csv = csv.split('\r\n');
         csv.pop();
-        $('footer').innerHTML += (csv[0].split(',').length) + '/';
-        $('footer').innerHTML += (MAX_DEPTH) + '/';
         while (csv.length > MAX_DATA) { add_row(); }
         while (csv[0].split(',').length > MAX_DEPTH) { add_col(); }
-        $('footer').innerHTML += (MAX_DEPTH);
-        
-        
         init_arr();
         var i, j;
         for (i = 0; i < csv.length; i++) {
