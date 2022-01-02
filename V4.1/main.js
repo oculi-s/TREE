@@ -6,10 +6,14 @@ var MAX_DATA = 20;
 const ss = sessionStorage
 const t = $('tbody');
 
+function new_td(c, r){
+    return `<td contenteditable=true data-c=${c} data-r=${r} onkeydown=cmove(this)></td>`;
+}
+
 for (var r = 0; r < MAX_DATA; r++) {
     var temp = `<tr>`;
     for (var c = 0; c < MAX_DEPTH; c++) {
-        temp += `<td contenteditable=true data-c=${c} data-r=${r} onkeydown=cmove(this)></td>`
+        temp += new_td(c, r);
     }
     temp += `</tr>`;
     t.innerHTML += temp;
@@ -151,7 +155,7 @@ function add_col() {
     MAX_DEPTH++;
     var tr = $$('tr');
     for (var r = 0; r < tr.length; r++) {
-        tr[r].innerHTML += `<td contenteditable=true data-c=${c} data-r=${r} onkeydown=cmove(this)></td>`
+        tr[r].innerHTML += new_td(MAX_DEPTH, r);
     }
 }
 
@@ -168,7 +172,7 @@ function add_row() {
     MAX_DATA++;
     var temp = `<tr>`;
     for (var c = 0; c < MAX_DEPTH; c++) {
-        temp += `<td contenteditable=true data-c=${c} data-r=${MAX_DATA} onkeydown=cmove(this)></td>`
+        temp += new_td(c, MAX_DATA);
     }
     temp += `</tr>`;
     t.innerHTML += temp;
