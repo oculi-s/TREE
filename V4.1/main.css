@@ -104,6 +104,7 @@ td {
     max-width: 50px;
     width: 50px;
     white-space: nowrap;
+    overflow: scroll;
 }
 
 td:focus {
