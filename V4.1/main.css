@@ -103,7 +103,7 @@ td {
     cursor: cell;
     max-width: 50px;
     width: 50px;
-    overflow-wrap: break-word;
+    white-space: nowrap;
 }
 
 td:focus {
