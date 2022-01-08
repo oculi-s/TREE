@@ -189,8 +189,7 @@ function upload() {
     }
 }
 
-
-function clear() {
+function clear_all() {
     if (confirm('clear All?')) {
         $$('td').forEach(e => { e.innerHTML = ''; });
     }
