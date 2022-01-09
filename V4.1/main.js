@@ -82,33 +82,29 @@ function init_arr() {
 }
 
 function td(r, c) {
-    return $$('tr')[r].children[c].innerText;
+    return $$('tr')[r].children[c].innerHTML;
 }
 
-function el(r, c) {
-    return arr[r][c];
-}
-
-function table_to_dict(func = td) {
+function table_to_dict() {
     for (var i = 0; i < MAX_DATA; i++) {
-        if (func(i, 0)) {
+        if (td(i, 0)) {
             var j = i + 1;
-            while (!func(j, 0) && j++ < MAX_DATA - 1) {}
-            add_data(dict, func(i, 0), i, j, 1, func);
+            while (!td(j, 0) && j++ < MAX_DATA - 1) {}
+            add_data(dict, td(i, 0), i, j, 1);
         }
     }
 }
 
-function add_data(sub, c, s, e, DEPTH, func) {
+function add_data(sub, c, s, e, DEPTH) {
     sub[c] = {};
     for (var i = s + 1; i < e; i++) {
-        if (func(i, DEPTH) && DEPTH < MAX_DEPTH - 1) {
+        if (td(i, DEPTH) && DEPTH < MAX_DEPTH - 1) {
             var j = i + 1;
-            while (!func(j, DEPTH) && j++ < MAX_DATA - 1) {}
-            if (func(i + 1, DEPTH + 1)) {
-                add_data(sub[c], func(i, DEPTH), i, j, DEPTH + 1, func);
+            while (!td(j, DEPTH) && j++ < MAX_DATA - 1) {}
+            if (td(i + 1, DEPTH + 1)) {
+                add_data(sub[c], td(i, DEPTH), i, j, DEPTH + 1);
             } else {
-                sub[c][func(i, DEPTH)] = {};
+                sub[c][td(i, DEPTH)] = {};
             }
         }
     }
@@ -134,12 +130,11 @@ function add_string(sub, b, DEPTH) {
     }
 }
 
-function convert(func) {
+function convert() {
     string = '';
     dict = {};
     init_arr();
-
-    table_to_dict(func);
+    table_to_dict();
     add_string(dict, Array(MAX_DEPTH).fill(String.fromCharCode(9474)), 0);
     $('textarea').value = string;
 }
@@ -181,11 +176,11 @@ function upload() {
         for (i = 0; i < csv.length; i++) {
             var row = csv[i].split(',');
             for (j = 0; j < row.length; j++) {
-                t.children[i].children[j].innerText = row[j].replaceAll(/\n|\r*/g, "");
-                arr[i][j] = row[j].replaceAll(/\n|\r*/g, "");
+                t.children[i].children[j].innerHTML = row[j].replace(/\n|\r*/g, "");
+                arr[i][j] = row[j].replace(/\n|\r*/g, "");
             }
         }
-        convert(el);
+        convert();
     }
 }
 
@@ -199,7 +194,7 @@ function download() {
     var csv = '';
     $$('tr').forEach(tr => {
         tr.childNodes.forEach(td => {
-            csv += td.innerText + ','
+            csv += td.innerHTML + ','
         })
         csv += '\r\n';
     });
