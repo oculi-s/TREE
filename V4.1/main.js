@@ -172,6 +172,7 @@ function upload() {
         csv.pop();
         while (csv.length > MAX_DATA - 1) { add_row(); }
         while (csv[0].split(',').length > MAX_DEPTH - 1) { add_col(); }
+        init_arr();
         var i, j;
         for (i = 0; i < csv.length; i++) {
             var row = csv[i].split(',');
