@@ -181,7 +181,7 @@ function upload() {
         for (i = 0; i < csv.length; i++) {
             var row = csv[i].split(',');
             for (j = 0; j < row.length; j++) {
-                t.children[i].children[j].innerHTML = row[j].replace(/\n|\r*/g, "");
+                t.children[i].children[j].innerText = row[j].replace(/\n|\r*/g, "");
                 arr[i][j] = row[j].replace(/\n|\r*/g, "");
             }
         }
@@ -199,7 +199,7 @@ function download() {
     var csv = '';
     $$('tr').forEach(tr => {
         tr.childNodes.forEach(td => {
-            csv += td.innerHTML + ','
+            csv += td.innerText + ','
         })
         csv += '\r\n';
     });
