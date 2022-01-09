@@ -113,7 +113,7 @@ function add_data(sub, c, s, e, DEPTH) {
 
 function add_string(sub, b, DEPTH) {
     for (var i in sub) {
-				c = Array.from(b);
+				var c = Array.from(b);
         if (DEPTH) {
             string += b.slice(0, DEPTH - 1).join('');
             if (Object.keys(sub).length == 1) {
