@@ -74,13 +74,6 @@ function cmove(e) {
     }
 }
 
-function init_arr() {
-    arr = Array(MAX_DATA).fill('');
-    for (i = 0; i < MAX_DATA; i++) {
-        arr[i] = Array(MAX_DEPTH).fill('')
-    }
-}
-
 function td(r, c) {
     return $$('tr')[r].children[c].innerHTML;
 }
@@ -133,7 +126,6 @@ function add_string(sub, b, DEPTH) {
 function convert() {
     string = '';
     dict = {};
-    init_arr();
     table_to_dict();
     add_string(dict, Array(MAX_DEPTH).fill(String.fromCharCode(9474)), 0);
     $('textarea').value = string;
@@ -172,14 +164,12 @@ function upload() {
         csv.pop();
         while (csv.length > MAX_DATA - 1) { add_row(); }
         while (csv[0].split(',').length > MAX_DEPTH - 1) { add_col(); }
-        init_arr();
         var i, j;
         for (i = 0; i < csv.length; i++) {
             var row = csv[i].split(',');
             alert(row);
             for (j = 0; j < row.length; j++) {
                 t.children[i].children[j].innerHTML = row[j].replace(/\n|\r*/g, "");
-                arr[i][j] = row[j].replace(/\n|\r*/g, "");
             }
         }
         convert();
