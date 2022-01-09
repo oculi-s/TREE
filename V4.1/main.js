@@ -176,7 +176,7 @@ function upload() {
         var i, j;
         for (i = 0; i < csv.length; i++) {
             var row = csv[i].split(',');
-            alert(i);
+            alert(row);
             for (j = 0; j < row.length; j++) {
                 t.children[i].children[j].innerHTML = row[j].replace(/\n|\r*/g, "");
                 arr[i][j] = row[j].replace(/\n|\r*/g, "");
