@@ -82,7 +82,7 @@ function init_arr() {
 }
 
 function td(r, c) {
-    return $$('tr')[r].children[c].innerHTML;
+    return $$('tr')[r].children[c].innerText;
 }
 
 function el(r, c) {
