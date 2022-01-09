@@ -1,8 +1,6 @@
 window.$ = document.querySelector.bind(document);
 window.$$ = document.querySelectorAll.bind(document);
 
-NodeList.prototype.indexOf = Array.prototype.indexOf;
-
 var MAX_DEPTH = 6;
 var MAX_DATA = 11;
 const ss = sessionStorage;
@@ -28,42 +26,52 @@ wresize();
 
 var isend = 0;
 
+function index(a, b){
+		var i;
+    for (i=0; i<a.length; i++){
+    		if (b==a[i])
+        	return i;
+    }
+    return -1;
+}
+
 function cmove(e) {
     var k = event.keyCode;
     if (k > 36 && k < 41) {
-        var r = $$('tr').indexOf(e.parentNode);
-        var c = $$('tr')[r].childNodes.indexOf(e);
-        var sel = getSelection();
+        var sel = window.getSelection();
+        var r = index(t.children, e.parentNode);
+        var c = index(t.children[r].children, e);
+        e.innerText = e.innerText.replace('\n','');
         if (k == 38 && r > 0) {
             t.children[r - 1].children[c].focus();
         } else if (k == 40) {
             if (r == MAX_DATA - 2) { add_row(); }
             t.children[r + 1].children[c].focus();
         } else if (k == 37 && c > 0) {
-            if (!e.innerHTML) {
-                t.children[r].children[c - 1].focus();
+            if (!e.innerText) {
+                e.previousSibling.focus();
             } else if (sel.anchorOffset == 1) {
                 isend = 1;
             } else if (!sel.anchorOffset) {
                 if (!isend) {
                     isend = 1;
                 } else {
-                    t.children[r].children[c - 1].focus();
+                    e.previousSibling.focus();
                     isend = 0;
                 }
             }
         } else if (k == 39) {
-            if (!e.innerHTML) {
-                if (c == MAX_DEPTH - 2) { add_col(); }
-                t.children[r].children[c + 1].focus();
-            } else if (sel.anchorOffset == e.innerHTML.length - 1) {
+            if (!e.innerText) {
+                if (c == MAX_DEPTH - 2) { add_col();}
+                t.children[r].children[c+1].focus();                
+            } else if (sel.anchorOffset == e.innerText.length - 1) {
                 isend = 1;
-            } else if (sel.anchorOffset == e.innerHTML.length) {
+            } else if (sel.anchorOffset == e.innerText.length) {
                 if (!isend) {
                     isend = 1;
                 } else {
-                    if (c == MAX_DEPTH - 2) { add_col(); }
-                    t.children[r].children[c + 1].focus();
+                    if (c == MAX_DEPTH - 2) { add_col();}
+		                t.children[r].children[c+1].focus();   
                     isend = 0;
                 }
             }
@@ -75,7 +83,7 @@ function cmove(e) {
 }
 
 function td(r, c) {
-    return $$('tr')[r].children[c].innerHTML;
+    return $$('tr')[r].children[c].innerText.replace('\n','');
 }
 
 function table_to_dict() {
@@ -105,10 +113,11 @@ function add_data(sub, c, s, e, DEPTH) {
 
 function add_string(sub, b, DEPTH) {
     for (var i in sub) {
+				c = Array.from(b);
         if (DEPTH) {
             string += b.slice(0, DEPTH - 1).join('');
             if (Object.keys(sub).length == 1) {
-                b[DEPTH - 1] = '  ';
+								c[DEPTH - 1] = '  ';
                 string += String.fromCharCode(9492);
             } else {
                 string += String.fromCharCode(9501);
@@ -116,7 +125,7 @@ function add_string(sub, b, DEPTH) {
         }
         string += `${i}\r\n`;
         if (Object.keys(sub[i])) {
-            add_string(sub[i], b, DEPTH + 1);
+            add_string(sub[i], c, DEPTH + 1);
         }
         delete sub[i]
     }
@@ -155,12 +164,12 @@ function rem_row() {
 }
 
 function upload() {
-    $$('td').forEach(e => { e.innerHTML = ''; });
     var inp = $('input[type=file]');
     inp.click();
     inp.onchange = async() => {
+		    $$('td').forEach(e => { e.innerHTML = ''; });
         var csv = await inp.files[0].text();
-        csv = csv.split('\r\n');
+        csv = csv.replaceAll('\n','').split('\r');
         csv.pop();
         while (csv.length > MAX_DATA - 1) { add_row(); }
         while (csv[0].split(',').length > MAX_DEPTH - 1) { add_col(); }
@@ -168,9 +177,12 @@ function upload() {
         for (i = 0; i < csv.length; i++) {
             var row = csv[i].split(',');
             for (j = 0; j < row.length; j++) {
-                t.children[i].children[j].innerHTML = row[j].replace(/\n|\r*/g, "");
+                t.children[i].children[j].innerText = row[j].replace(/\n|\r*/g, "");
+                t.children[i].children[j].innerText.replace('\n','');
             }
         }
+				while (!t.children[MAX_DATA - 2].innerText){rem_row();}
+				while (!Array.from($$('td:nth-last-child(2)')).map(e=>e.innerText).join('')){rem_col();}
         convert();
     }
 }
@@ -185,7 +197,7 @@ function download() {
     var csv = '';
     $$('tr').forEach(tr => {
         tr.childNodes.forEach(td => {
-            csv += td.innerHTML + ','
+            csv += td.innerText + ','
         })
         csv += '\r\n';
     });
