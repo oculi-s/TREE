@@ -103,7 +103,6 @@ function add_data(sub, c, s, e, DEPTH) {
     }
 }
 
-
 function add_string(sub, b, DEPTH) {
     for (var i in sub) {
         if (DEPTH) {
@@ -167,7 +166,6 @@ function upload() {
         var i, j;
         for (i = 0; i < csv.length; i++) {
             var row = csv[i].split(',');
-            alert(row);
             for (j = 0; j < row.length; j++) {
                 t.children[i].children[j].innerHTML = row[j].replace(/\n|\r*/g, "");
             }
