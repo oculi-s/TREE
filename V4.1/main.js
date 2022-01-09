@@ -1,5 +1,6 @@
 window.$ = document.querySelector.bind(document);
 window.$$ = document.querySelectorAll.bind(document);
+NodeList.prototype.index = Array.prototype.indexOf;
 
 var MAX_DEPTH = 6;
 var MAX_DATA = 11;
@@ -12,6 +13,7 @@ var string = '';
 
 t.innerHTML += `<tr>${ntd.repeat(MAX_DEPTH)}</tr>`.repeat(MAX_DATA);
 $('body').onresize = wresize;
+wresize();
 
 function wresize() {
     if (/Android|iPhone|ipad|iPod/i.test(navigator.userAgent) || innerWidth < 400) {
@@ -22,26 +24,25 @@ function wresize() {
         $('header').classList.remove('m-h');
     }
 }
-wresize();
 
 var isend = 0;
 
-function index(a, b){
-		var i;
+/* function index(a, b){
+        var i;
     for (i=0; i<a.length; i++){
-    		if (b==a[i])
-        	return i;
+            if (b==a[i])
+            return i;
     }
     return -1;
-}
+} */
 
 function cmove(e) {
     var k = event.keyCode;
     if (k > 36 && k < 41) {
         var sel = window.getSelection();
-        var r = index(t.children, e.parentNode);
-        var c = index(t.children[r].children, e);
-        e.innerText = e.innerText.replace('\n','');
+        var r = t.childNodes.index(e.parentNode);
+        var c = t.childNodes[r].childNodes.index(e);
+        e.innerText = e.innerText.replace('\n', '');
         if (k == 38 && r > 0) {
             t.children[r - 1].children[c].focus();
         } else if (k == 40) {
@@ -62,16 +63,16 @@ function cmove(e) {
             }
         } else if (k == 39) {
             if (!e.innerText) {
-                if (c == MAX_DEPTH - 2) { add_col();}
-                t.children[r].children[c+1].focus();                
+                if (c == MAX_DEPTH - 2) { add_col(); }
+                t.children[r].children[c + 1].focus();
             } else if (sel.anchorOffset == e.innerText.length - 1) {
                 isend = 1;
             } else if (sel.anchorOffset == e.innerText.length) {
                 if (!isend) {
                     isend = 1;
                 } else {
-                    if (c == MAX_DEPTH - 2) { add_col();}
-		                t.children[r].children[c+1].focus();   
+                    if (c == MAX_DEPTH - 2) { add_col(); }
+                    t.children[r].children[c + 1].focus();
                     isend = 0;
                 }
             }
@@ -83,14 +84,14 @@ function cmove(e) {
 }
 
 function td(r, c) {
-    return $$('tr')[r].children[c].innerText.replace('\n','');
+    return $$('tr')[r].children[c].innerText.replace('\n', '');
 }
 
 function table_to_dict() {
     for (var i = 0; i < MAX_DATA; i++) {
         if (td(i, 0)) {
             var j = i + 1;
-            while (!td(j, 0) && j++ < MAX_DATA - 1) {}
+            while (!td(j, 0) && j++ < MAX_DATA - 1) { }
             add_data(dict, td(i, 0), i, j, 1);
         }
     }
@@ -101,7 +102,7 @@ function add_data(sub, c, s, e, DEPTH) {
     for (var i = s + 1; i < e; i++) {
         if (td(i, DEPTH) && DEPTH < MAX_DEPTH - 1) {
             var j = i + 1;
-            while (!td(j, DEPTH) && j++ < MAX_DATA - 1) {}
+            while (!td(j, DEPTH) && j++ < MAX_DATA - 1) { }
             if (td(i + 1, DEPTH + 1)) {
                 add_data(sub[c], td(i, DEPTH), i, j, DEPTH + 1);
             } else {
@@ -113,11 +114,11 @@ function add_data(sub, c, s, e, DEPTH) {
 
 function add_string(sub, b, DEPTH) {
     for (var i in sub) {
-				var c = Array.from(b);
+        var c = Array.from(b);
         if (DEPTH) {
             string += b.slice(0, DEPTH - 1).join('');
             if (Object.keys(sub).length == 1) {
-								c[DEPTH - 1] = '  ';
+                c[DEPTH - 1] = '  ';
                 string += String.fromCharCode(9492);
             } else {
                 string += String.fromCharCode(9501);
@@ -166,10 +167,10 @@ function rem_row() {
 function upload() {
     var inp = $('input[type=file]');
     inp.click();
-    inp.onchange = async() => {
-		    $$('td').forEach(e => { e.innerHTML = ''; });
+    inp.onchange = async () => {
+        $$('td').forEach(e => { e.innerHTML = ''; });
         var csv = await inp.files[0].text();
-        csv = csv.replaceAll('\n','').split('\r');
+        csv = csv.replaceAll('\n', '').split('\r');
         csv.pop();
         while (csv.length > MAX_DATA - 1) { add_row(); }
         while (csv[0].split(',').length > MAX_DEPTH - 1) { add_col(); }
@@ -178,11 +179,11 @@ function upload() {
             var row = csv[i].split(',');
             for (j = 0; j < row.length; j++) {
                 t.children[i].children[j].innerText = row[j].replace(/\n|\r*/g, "");
-                t.children[i].children[j].innerText.replace('\n','');
+                t.children[i].children[j].innerText.replace('\n', '');
             }
         }
-				while (!t.children[MAX_DATA - 2].innerText){rem_row();}
-				while (!Array.from($$('td:nth-last-child(2)')).map(e=>e.innerText).join('')){rem_col();}
+        while (!t.children[MAX_DATA - 2].innerText) { rem_row(); }
+        while (!Array.from($$('td:nth-last-child(2)')).map(e => e.innerText).join('')) { rem_col(); }
         convert();
     }
 }
