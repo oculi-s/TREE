@@ -155,6 +155,7 @@ function rem_row() {
 }
 
 function upload() {
+    $$('td').forEach(e => { e.innerHTML = ''; });
     var inp = $('input[type=file]');
     inp.click();
     inp.onchange = async() => {
