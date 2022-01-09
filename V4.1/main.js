@@ -181,8 +181,8 @@ function upload() {
         for (i = 0; i < csv.length; i++) {
             var row = csv[i].split(',');
             for (j = 0; j < row.length; j++) {
-                t.children[i].children[j].innerText = row[j].replace(/\n|\r*/g, "");
-                arr[i][j] = row[j].replace(/\n|\r*/g, "");
+                t.children[i].children[j].innerText = row[j].replaceAll(/\n|\r*/g, "");
+                arr[i][j] = row[j].replaceAll(/\n|\r*/g, "");
             }
         }
         convert(el);
